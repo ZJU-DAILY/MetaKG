@@ -1,0 +1,710 @@
+2021-05-15 17:23:07,383 - root - INFO - Namespace(K=20, aggregation_type='bi-interaction', cf_batch_size=16, cf_l2loss_lambda=1e-05, cf_print_every=50, conv_dim_list='[64, 32, 16]', data_dir='datasets/', data_name='amazon-book', entity_dim=64, evaluate_every=1, kg_batch_size=1024, kg_l2loss_lambda=1e-05, kg_print_every=100, local_lr=0.0001, local_rank=0, lr=0.0001, mess_dropout='[0.1, 0.1, 0.1]', n_epoch=1000, pretrain_embedding_dir='datasets/pretrain/', pretrain_model_path='trained_model/model.pth', relation_dim=64, save_dir='trained_model/KGAT/amazon-book/entitydim64_relationdim64_bi-interaction_64-32-16_lr0.0001_pretrain1/', seed=123, stopping_steps=20, test_batch_size=5000, use_pretrain=1)
+2021-05-15 17:23:13,343 - numexpr.utils - INFO - Note: NumExpr detected 20 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2021-05-15 17:23:13,343 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2021-05-15 17:29:38,187 - root - INFO - n_users:            70679
+2021-05-15 17:29:38,187 - root - INFO - n_items:            24915
+2021-05-15 17:29:38,187 - root - INFO - n_entities:         113487
+2021-05-15 17:29:38,187 - root - INFO - n_users_entities:   184166
+2021-05-15 17:29:38,187 - root - INFO - n_relations:        80
+2021-05-15 17:29:38,187 - root - INFO - n_cf_train:         119749
+2021-05-15 17:29:38,187 - root - INFO - n_cf_test:          74980
+2021-05-15 17:29:38,187 - root - INFO - n_kg_train:         5354990
+2021-05-15 17:29:38,187 - root - INFO - n_kg_test:          5265452
+2021-05-15 17:36:21,888 - root - INFO - n_users:            70679
+2021-05-15 17:36:21,888 - root - INFO - n_items:            24915
+2021-05-15 17:36:21,888 - root - INFO - n_entities:         113487
+2021-05-15 17:36:21,888 - root - INFO - n_users_entities:   184166
+2021-05-15 17:36:21,888 - root - INFO - n_relations:        80
+2021-05-15 17:36:21,888 - root - INFO - n_cf_train:         2196
+2021-05-15 17:36:21,888 - root - INFO - n_cf_test:          2160
+2021-05-15 17:36:21,888 - root - INFO - n_kg_train:         5119884
+2021-05-15 17:36:21,888 - root - INFO - n_kg_test:          5119812
+2021-05-15 17:36:42,753 - root - INFO - KGAT(
+  (relation_embed): Embedding(80, 64)
+  (entity_user_embed): Embedding(184166, 64)
+  (aggregator_layers): ModuleList(
+    (0): Aggregator(
+      (message_dropout): Dropout(p=0.1, inplace=False)
+      (W1): Linear(in_features=64, out_features=64, bias=True)
+      (W2): Linear(in_features=64, out_features=64, bias=True)
+      (activation): LeakyReLU(negative_slope=0.01)
+    )
+    (1): Aggregator(
+      (message_dropout): Dropout(p=0.1, inplace=False)
+      (W1): Linear(in_features=64, out_features=32, bias=True)
+      (W2): Linear(in_features=64, out_features=32, bias=True)
+      (activation): LeakyReLU(negative_slope=0.01)
+    )
+    (2): Aggregator(
+      (message_dropout): Dropout(p=0.1, inplace=False)
+      (W1): Linear(in_features=32, out_features=16, bias=True)
+      (W2): Linear(in_features=32, out_features=16, bias=True)
+      (activation): LeakyReLU(negative_slope=0.01)
+    )
+  )
+)
+2021-05-15 17:36:44,244 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1.4s
+2021-05-15 17:36:45,853 - root - INFO - CF Training: Epoch 0001 Iter 0000 / 0469 | Time 3.0s | Iter Loss 0.8341
+2021-05-15 17:36:47,031 - root - INFO - Update attention scores: Epoch 0001 | Total Time 4.2s
+2021-05-15 17:36:49,703 - root - INFO - Update attention scores: Epoch 0001 | Total Time 6.9s
+2021-05-15 17:36:52,378 - root - INFO - Update attention scores: Epoch 0001 | Total Time 9.6s
+2021-05-15 17:36:55,052 - root - INFO - Update attention scores: Epoch 0001 | Total Time 12.2s
+2021-05-15 17:36:57,726 - root - INFO - Update attention scores: Epoch 0001 | Total Time 14.9s
+2021-05-15 17:37:00,401 - root - INFO - Update attention scores: Epoch 0001 | Total Time 17.6s
+2021-05-15 17:37:03,074 - root - INFO - Update attention scores: Epoch 0001 | Total Time 20.3s
+2021-05-15 17:37:05,743 - root - INFO - Update attention scores: Epoch 0001 | Total Time 22.9s
+2021-05-15 17:37:08,415 - root - INFO - Update attention scores: Epoch 0001 | Total Time 25.6s
+2021-05-15 17:37:11,084 - root - INFO - Update attention scores: Epoch 0001 | Total Time 28.3s
+2021-05-15 17:37:13,754 - root - INFO - Update attention scores: Epoch 0001 | Total Time 30.9s
+2021-05-15 17:37:16,423 - root - INFO - Update attention scores: Epoch 0001 | Total Time 33.6s
+2021-05-15 17:37:19,091 - root - INFO - Update attention scores: Epoch 0001 | Total Time 36.3s
+2021-05-15 17:37:21,759 - root - INFO - Update attention scores: Epoch 0001 | Total Time 38.9s
+2021-05-15 17:37:24,428 - root - INFO - Update attention scores: Epoch 0001 | Total Time 41.6s
+2021-05-15 17:37:27,095 - root - INFO - Update attention scores: Epoch 0001 | Total Time 44.3s
+2021-05-15 17:37:29,763 - root - INFO - Update attention scores: Epoch 0001 | Total Time 46.9s
+2021-05-15 17:37:32,432 - root - INFO - Update attention scores: Epoch 0001 | Total Time 49.6s
+2021-05-15 17:37:35,100 - root - INFO - Update attention scores: Epoch 0001 | Total Time 52.3s
+2021-05-15 17:37:37,768 - root - INFO - Update attention scores: Epoch 0001 | Total Time 54.9s
+2021-05-15 17:37:40,437 - root - INFO - Update attention scores: Epoch 0001 | Total Time 57.6s
+2021-05-15 17:37:43,104 - root - INFO - Update attention scores: Epoch 0001 | Total Time 60.3s
+2021-05-15 17:37:45,772 - root - INFO - Update attention scores: Epoch 0001 | Total Time 63.0s
+2021-05-15 17:37:48,441 - root - INFO - Update attention scores: Epoch 0001 | Total Time 65.6s
+2021-05-15 17:37:51,110 - root - INFO - Update attention scores: Epoch 0001 | Total Time 68.3s
+2021-05-15 17:37:53,781 - root - INFO - Update attention scores: Epoch 0001 | Total Time 71.0s
+2021-05-15 17:37:56,453 - root - INFO - Update attention scores: Epoch 0001 | Total Time 73.6s
+2021-05-15 17:37:59,126 - root - INFO - Update attention scores: Epoch 0001 | Total Time 76.3s
+2021-05-15 17:38:01,796 - root - INFO - Update attention scores: Epoch 0001 | Total Time 79.0s
+2021-05-15 17:38:04,469 - root - INFO - Update attention scores: Epoch 0001 | Total Time 81.6s
+2021-05-15 17:38:07,141 - root - INFO - Update attention scores: Epoch 0001 | Total Time 84.3s
+2021-05-15 17:38:09,812 - root - INFO - Update attention scores: Epoch 0001 | Total Time 87.0s
+2021-05-15 17:38:12,484 - root - INFO - Update attention scores: Epoch 0001 | Total Time 89.7s
+2021-05-15 17:38:15,156 - root - INFO - Update attention scores: Epoch 0001 | Total Time 92.3s
+2021-05-15 17:38:17,826 - root - INFO - Update attention scores: Epoch 0001 | Total Time 95.0s
+2021-05-15 17:38:20,498 - root - INFO - Update attention scores: Epoch 0001 | Total Time 97.7s
+2021-05-15 17:38:23,170 - root - INFO - Update attention scores: Epoch 0001 | Total Time 100.3s
+2021-05-15 17:38:25,840 - root - INFO - Update attention scores: Epoch 0001 | Total Time 103.0s
+2021-05-15 17:38:28,511 - root - INFO - Update attention scores: Epoch 0001 | Total Time 105.7s
+2021-05-15 17:38:31,184 - root - INFO - Update attention scores: Epoch 0001 | Total Time 108.4s
+2021-05-15 17:38:33,853 - root - INFO - Update attention scores: Epoch 0001 | Total Time 111.0s
+2021-05-15 17:38:36,525 - root - INFO - Update attention scores: Epoch 0001 | Total Time 113.7s
+2021-05-15 17:38:39,197 - root - INFO - Update attention scores: Epoch 0001 | Total Time 116.4s
+2021-05-15 17:38:41,866 - root - INFO - Update attention scores: Epoch 0001 | Total Time 119.0s
+2021-05-15 17:38:44,538 - root - INFO - Update attention scores: Epoch 0001 | Total Time 121.7s
+2021-05-15 17:38:47,209 - root - INFO - Update attention scores: Epoch 0001 | Total Time 124.4s
+2021-05-15 17:38:49,879 - root - INFO - Update attention scores: Epoch 0001 | Total Time 127.1s
+2021-05-15 17:38:52,552 - root - INFO - Update attention scores: Epoch 0001 | Total Time 129.7s
+2021-05-15 17:38:55,225 - root - INFO - Update attention scores: Epoch 0001 | Total Time 132.4s
+2021-05-15 17:38:57,897 - root - INFO - Update attention scores: Epoch 0001 | Total Time 135.1s
+2021-05-15 17:38:59,397 - root - INFO - CF Training: Epoch 0001 Iter 0050 / 0469 | Time 2.7s | Iter Loss 0.5514
+2021-05-15 17:39:00,568 - root - INFO - Update attention scores: Epoch 0001 | Total Time 137.7s
+2021-05-15 17:39:03,240 - root - INFO - Update attention scores: Epoch 0001 | Total Time 140.4s
+2021-05-15 17:39:05,911 - root - INFO - Update attention scores: Epoch 0001 | Total Time 143.1s
+2021-05-15 17:39:08,582 - root - INFO - Update attention scores: Epoch 0001 | Total Time 145.8s
+2021-05-15 17:39:11,255 - root - INFO - Update attention scores: Epoch 0001 | Total Time 148.4s
+2021-05-15 17:39:13,926 - root - INFO - Update attention scores: Epoch 0001 | Total Time 151.1s
+2021-05-15 17:39:16,598 - root - INFO - Update attention scores: Epoch 0001 | Total Time 153.8s
+2021-05-15 17:39:19,270 - root - INFO - Update attention scores: Epoch 0001 | Total Time 156.4s
+2021-05-15 17:39:21,942 - root - INFO - Update attention scores: Epoch 0001 | Total Time 159.1s
+2021-05-15 17:39:24,614 - root - INFO - Update attention scores: Epoch 0001 | Total Time 161.8s
+2021-05-15 17:39:27,286 - root - INFO - Update attention scores: Epoch 0001 | Total Time 164.5s
+2021-05-15 17:39:29,958 - root - INFO - Update attention scores: Epoch 0001 | Total Time 167.1s
+2021-05-15 17:39:32,630 - root - INFO - Update attention scores: Epoch 0001 | Total Time 169.8s
+2021-05-15 17:39:35,303 - root - INFO - Update attention scores: Epoch 0001 | Total Time 172.5s
+2021-05-15 17:39:37,974 - root - INFO - Update attention scores: Epoch 0001 | Total Time 175.2s
+2021-05-15 17:39:40,645 - root - INFO - Update attention scores: Epoch 0001 | Total Time 177.8s
+2021-05-15 17:39:43,317 - root - INFO - Update attention scores: Epoch 0001 | Total Time 180.5s
+2021-05-15 17:39:45,989 - root - INFO - Update attention scores: Epoch 0001 | Total Time 183.2s
+2021-05-15 17:39:48,660 - root - INFO - Update attention scores: Epoch 0001 | Total Time 185.8s
+2021-05-15 17:39:51,332 - root - INFO - Update attention scores: Epoch 0001 | Total Time 188.5s
+2021-05-15 17:39:54,004 - root - INFO - Update attention scores: Epoch 0001 | Total Time 191.2s
+2021-05-15 17:39:56,676 - root - INFO - Update attention scores: Epoch 0001 | Total Time 193.9s
+2021-05-15 17:39:59,349 - root - INFO - Update attention scores: Epoch 0001 | Total Time 196.5s
+2021-05-15 17:40:02,020 - root - INFO - Update attention scores: Epoch 0001 | Total Time 199.2s
+2021-05-15 17:40:04,692 - root - INFO - Update attention scores: Epoch 0001 | Total Time 201.9s
+2021-05-15 17:40:07,365 - root - INFO - Update attention scores: Epoch 0001 | Total Time 204.5s
+2021-05-15 17:40:10,036 - root - INFO - Update attention scores: Epoch 0001 | Total Time 207.2s
+2021-05-15 17:40:12,707 - root - INFO - Update attention scores: Epoch 0001 | Total Time 209.9s
+2021-05-15 17:40:15,380 - root - INFO - Update attention scores: Epoch 0001 | Total Time 212.6s
+2021-05-15 17:40:18,050 - root - INFO - Update attention scores: Epoch 0001 | Total Time 215.2s
+2021-05-15 17:40:20,721 - root - INFO - Update attention scores: Epoch 0001 | Total Time 217.9s
+2021-05-15 17:40:23,393 - root - INFO - Update attention scores: Epoch 0001 | Total Time 220.6s
+2021-05-15 17:40:26,064 - root - INFO - Update attention scores: Epoch 0001 | Total Time 223.2s
+2021-05-15 17:40:28,735 - root - INFO - Update attention scores: Epoch 0001 | Total Time 225.9s
+2021-05-15 17:40:31,407 - root - INFO - Update attention scores: Epoch 0001 | Total Time 228.6s
+2021-05-15 17:40:34,077 - root - INFO - Update attention scores: Epoch 0001 | Total Time 231.3s
+2021-05-15 17:40:36,748 - root - INFO - Update attention scores: Epoch 0001 | Total Time 233.9s
+2021-05-15 17:40:39,421 - root - INFO - Update attention scores: Epoch 0001 | Total Time 236.6s
+2021-05-15 17:40:42,091 - root - INFO - Update attention scores: Epoch 0001 | Total Time 239.3s
+2021-05-15 17:40:44,760 - root - INFO - Update attention scores: Epoch 0001 | Total Time 241.9s
+2021-05-15 17:40:47,432 - root - INFO - Update attention scores: Epoch 0001 | Total Time 244.6s
+2021-05-15 17:40:50,103 - root - INFO - Update attention scores: Epoch 0001 | Total Time 247.3s
+2021-05-15 17:40:52,773 - root - INFO - Update attention scores: Epoch 0001 | Total Time 250.0s
+2021-05-15 17:40:55,445 - root - INFO - Update attention scores: Epoch 0001 | Total Time 252.6s
+2021-05-15 17:40:58,116 - root - INFO - Update attention scores: Epoch 0001 | Total Time 255.3s
+2021-05-15 17:41:00,786 - root - INFO - Update attention scores: Epoch 0001 | Total Time 258.0s
+2021-05-15 17:41:03,458 - root - INFO - Update attention scores: Epoch 0001 | Total Time 260.6s
+2021-05-15 17:41:06,130 - root - INFO - Update attention scores: Epoch 0001 | Total Time 263.3s
+2021-05-15 17:41:08,802 - root - INFO - Update attention scores: Epoch 0001 | Total Time 266.0s
+2021-05-15 17:41:11,476 - root - INFO - Update attention scores: Epoch 0001 | Total Time 268.7s
+2021-05-15 17:41:12,976 - root - INFO - CF Training: Epoch 0001 Iter 0100 / 0469 | Time 2.7s | Iter Loss 0.4625
+2021-05-15 17:41:14,148 - root - INFO - Update attention scores: Epoch 0001 | Total Time 271.3s
+2021-05-15 17:41:16,820 - root - INFO - Update attention scores: Epoch 0001 | Total Time 274.0s
+2021-05-15 17:41:19,492 - root - INFO - Update attention scores: Epoch 0001 | Total Time 276.7s
+2021-05-15 17:41:22,163 - root - INFO - Update attention scores: Epoch 0001 | Total Time 279.3s
+2021-05-15 17:41:24,835 - root - INFO - Update attention scores: Epoch 0001 | Total Time 282.0s
+2021-05-15 17:41:27,507 - root - INFO - Update attention scores: Epoch 0001 | Total Time 284.7s
+2021-05-15 17:41:30,179 - root - INFO - Update attention scores: Epoch 0001 | Total Time 287.4s
+2021-05-15 17:41:32,852 - root - INFO - Update attention scores: Epoch 0001 | Total Time 290.0s
+2021-05-15 17:41:35,524 - root - INFO - Update attention scores: Epoch 0001 | Total Time 292.7s
+2021-05-15 17:41:38,196 - root - INFO - Update attention scores: Epoch 0001 | Total Time 295.4s
+2021-05-15 17:41:40,868 - root - INFO - Update attention scores: Epoch 0001 | Total Time 298.0s
+2021-05-15 17:41:43,540 - root - INFO - Update attention scores: Epoch 0001 | Total Time 300.7s
+2021-05-15 17:41:46,213 - root - INFO - Update attention scores: Epoch 0001 | Total Time 303.4s
+2021-05-15 17:41:48,885 - root - INFO - Update attention scores: Epoch 0001 | Total Time 306.1s
+2021-05-15 17:41:51,560 - root - INFO - Update attention scores: Epoch 0001 | Total Time 308.7s
+2021-05-15 17:41:54,234 - root - INFO - Update attention scores: Epoch 0001 | Total Time 311.4s
+2021-05-15 17:41:56,910 - root - INFO - Update attention scores: Epoch 0001 | Total Time 314.1s
+2021-05-15 17:41:59,586 - root - INFO - Update attention scores: Epoch 0001 | Total Time 316.8s
+2021-05-15 17:42:02,260 - root - INFO - Update attention scores: Epoch 0001 | Total Time 319.4s
+2021-05-15 17:42:04,935 - root - INFO - Update attention scores: Epoch 0001 | Total Time 322.1s
+2021-05-15 17:42:07,609 - root - INFO - Update attention scores: Epoch 0001 | Total Time 324.8s
+2021-05-15 17:42:10,284 - root - INFO - Update attention scores: Epoch 0001 | Total Time 327.5s
+2021-05-15 17:42:12,960 - root - INFO - Update attention scores: Epoch 0001 | Total Time 330.1s
+2021-05-15 17:42:15,636 - root - INFO - Update attention scores: Epoch 0001 | Total Time 332.8s
+2021-05-15 17:42:18,310 - root - INFO - Update attention scores: Epoch 0001 | Total Time 335.5s
+2021-05-15 17:42:20,986 - root - INFO - Update attention scores: Epoch 0001 | Total Time 338.2s
+2021-05-15 17:42:23,662 - root - INFO - Update attention scores: Epoch 0001 | Total Time 340.8s
+2021-05-15 17:42:26,336 - root - INFO - Update attention scores: Epoch 0001 | Total Time 343.5s
+2021-05-15 17:42:29,011 - root - INFO - Update attention scores: Epoch 0001 | Total Time 346.2s
+2021-05-15 17:42:31,687 - root - INFO - Update attention scores: Epoch 0001 | Total Time 348.9s
+2021-05-15 17:42:34,361 - root - INFO - Update attention scores: Epoch 0001 | Total Time 351.5s
+2021-05-15 17:42:37,036 - root - INFO - Update attention scores: Epoch 0001 | Total Time 354.2s
+2021-05-15 17:42:39,711 - root - INFO - Update attention scores: Epoch 0001 | Total Time 356.9s
+2021-05-15 17:42:42,385 - root - INFO - Update attention scores: Epoch 0001 | Total Time 359.6s
+2021-05-15 17:42:45,060 - root - INFO - Update attention scores: Epoch 0001 | Total Time 362.2s
+2021-05-15 17:42:47,735 - root - INFO - Update attention scores: Epoch 0001 | Total Time 364.9s
+2021-05-15 17:42:50,409 - root - INFO - Update attention scores: Epoch 0001 | Total Time 367.6s
+2021-05-15 17:42:53,084 - root - INFO - Update attention scores: Epoch 0001 | Total Time 370.3s
+2021-05-15 17:42:55,758 - root - INFO - Update attention scores: Epoch 0001 | Total Time 372.9s
+2021-05-15 17:42:58,432 - root - INFO - Update attention scores: Epoch 0001 | Total Time 375.6s
+2021-05-15 17:43:01,106 - root - INFO - Update attention scores: Epoch 0001 | Total Time 378.3s
+2021-05-15 17:43:03,782 - root - INFO - Update attention scores: Epoch 0001 | Total Time 381.0s
+2021-05-15 17:43:06,455 - root - INFO - Update attention scores: Epoch 0001 | Total Time 383.6s
+2021-05-15 17:43:09,129 - root - INFO - Update attention scores: Epoch 0001 | Total Time 386.3s
+2021-05-15 17:43:11,805 - root - INFO - Update attention scores: Epoch 0001 | Total Time 389.0s
+2021-05-15 17:43:14,478 - root - INFO - Update attention scores: Epoch 0001 | Total Time 391.7s
+2021-05-15 17:43:17,153 - root - INFO - Update attention scores: Epoch 0001 | Total Time 394.3s
+2021-05-15 17:43:19,829 - root - INFO - Update attention scores: Epoch 0001 | Total Time 397.0s
+2021-05-15 17:43:22,504 - root - INFO - Update attention scores: Epoch 0001 | Total Time 399.7s
+2021-05-15 17:43:25,178 - root - INFO - Update attention scores: Epoch 0001 | Total Time 402.4s
+2021-05-15 17:43:26,679 - root - INFO - CF Training: Epoch 0001 Iter 0150 / 0469 | Time 2.7s | Iter Loss 0.6190
+2021-05-15 17:43:27,854 - root - INFO - Update attention scores: Epoch 0001 | Total Time 405.0s
+2021-05-15 17:43:30,528 - root - INFO - Update attention scores: Epoch 0001 | Total Time 407.7s
+2021-05-15 17:43:33,203 - root - INFO - Update attention scores: Epoch 0001 | Total Time 410.4s
+2021-05-15 17:43:35,879 - root - INFO - Update attention scores: Epoch 0001 | Total Time 413.1s
+2021-05-15 17:43:38,554 - root - INFO - Update attention scores: Epoch 0001 | Total Time 415.7s
+2021-05-15 17:43:41,229 - root - INFO - Update attention scores: Epoch 0001 | Total Time 418.4s
+2021-05-15 17:43:43,904 - root - INFO - Update attention scores: Epoch 0001 | Total Time 421.1s
+2021-05-15 17:43:46,578 - root - INFO - Update attention scores: Epoch 0001 | Total Time 423.8s
+2021-05-15 17:43:49,253 - root - INFO - Update attention scores: Epoch 0001 | Total Time 426.4s
+2021-05-15 17:43:51,928 - root - INFO - Update attention scores: Epoch 0001 | Total Time 429.1s
+2021-05-15 17:43:54,603 - root - INFO - Update attention scores: Epoch 0001 | Total Time 431.8s
+2021-05-15 17:43:57,279 - root - INFO - Update attention scores: Epoch 0001 | Total Time 434.5s
+2021-05-15 17:43:59,954 - root - INFO - Update attention scores: Epoch 0001 | Total Time 437.1s
+2021-05-15 17:44:02,629 - root - INFO - Update attention scores: Epoch 0001 | Total Time 439.8s
+2021-05-15 17:44:05,307 - root - INFO - Update attention scores: Epoch 0001 | Total Time 442.5s
+2021-05-15 17:44:07,981 - root - INFO - Update attention scores: Epoch 0001 | Total Time 445.2s
+2021-05-15 17:44:10,656 - root - INFO - Update attention scores: Epoch 0001 | Total Time 447.8s
+2021-05-15 17:44:13,332 - root - INFO - Update attention scores: Epoch 0001 | Total Time 450.5s
+2021-05-15 17:44:16,007 - root - INFO - Update attention scores: Epoch 0001 | Total Time 453.2s
+2021-05-15 17:44:18,682 - root - INFO - Update attention scores: Epoch 0001 | Total Time 455.9s
+2021-05-15 17:44:21,358 - root - INFO - Update attention scores: Epoch 0001 | Total Time 458.5s
+2021-05-15 17:44:24,032 - root - INFO - Update attention scores: Epoch 0001 | Total Time 461.2s
+2021-05-15 17:44:26,707 - root - INFO - Update attention scores: Epoch 0001 | Total Time 463.9s
+2021-05-15 17:44:29,383 - root - INFO - Update attention scores: Epoch 0001 | Total Time 466.6s
+2021-05-15 17:44:32,058 - root - INFO - Update attention scores: Epoch 0001 | Total Time 469.2s
+2021-05-15 17:44:34,732 - root - INFO - Update attention scores: Epoch 0001 | Total Time 471.9s
+2021-05-15 17:44:37,408 - root - INFO - Update attention scores: Epoch 0001 | Total Time 474.6s
+2021-05-15 17:44:40,082 - root - INFO - Update attention scores: Epoch 0001 | Total Time 477.3s
+2021-05-15 17:44:42,757 - root - INFO - Update attention scores: Epoch 0001 | Total Time 479.9s
+2021-05-15 17:44:45,432 - root - INFO - Update attention scores: Epoch 0001 | Total Time 482.6s
+2021-05-15 17:44:48,106 - root - INFO - Update attention scores: Epoch 0001 | Total Time 485.3s
+2021-05-15 17:44:50,782 - root - INFO - Update attention scores: Epoch 0001 | Total Time 488.0s
+2021-05-15 17:44:53,457 - root - INFO - Update attention scores: Epoch 0001 | Total Time 490.6s
+2021-05-15 17:44:56,131 - root - INFO - Update attention scores: Epoch 0001 | Total Time 493.3s
+2021-05-15 17:44:58,807 - root - INFO - Update attention scores: Epoch 0001 | Total Time 496.0s
+2021-05-15 17:45:01,483 - root - INFO - Update attention scores: Epoch 0001 | Total Time 498.7s
+2021-05-15 17:45:04,158 - root - INFO - Update attention scores: Epoch 0001 | Total Time 501.3s
+2021-05-15 17:45:06,830 - root - INFO - Update attention scores: Epoch 0001 | Total Time 504.0s
+2021-05-15 17:45:09,501 - root - INFO - Update attention scores: Epoch 0001 | Total Time 506.7s
+2021-05-15 17:45:12,173 - root - INFO - Update attention scores: Epoch 0001 | Total Time 509.4s
+2021-05-15 17:45:14,845 - root - INFO - Update attention scores: Epoch 0001 | Total Time 512.0s
+2021-05-15 17:45:17,517 - root - INFO - Update attention scores: Epoch 0001 | Total Time 514.7s
+2021-05-15 17:45:20,188 - root - INFO - Update attention scores: Epoch 0001 | Total Time 517.4s
+2021-05-15 17:45:22,859 - root - INFO - Update attention scores: Epoch 0001 | Total Time 520.0s
+2021-05-15 17:45:25,530 - root - INFO - Update attention scores: Epoch 0001 | Total Time 522.7s
+2021-05-15 17:45:28,201 - root - INFO - Update attention scores: Epoch 0001 | Total Time 525.4s
+2021-05-15 17:45:30,873 - root - INFO - Update attention scores: Epoch 0001 | Total Time 528.1s
+2021-05-15 17:45:33,546 - root - INFO - Update attention scores: Epoch 0001 | Total Time 530.7s
+2021-05-15 17:45:36,219 - root - INFO - Update attention scores: Epoch 0001 | Total Time 533.4s
+2021-05-15 17:45:38,890 - root - INFO - Update attention scores: Epoch 0001 | Total Time 536.1s
+2021-05-15 17:45:40,391 - root - INFO - CF Training: Epoch 0001 Iter 0200 / 0469 | Time 2.7s | Iter Loss 0.5535
+2021-05-15 17:45:41,563 - root - INFO - Update attention scores: Epoch 0001 | Total Time 538.7s
+2021-05-15 17:45:44,233 - root - INFO - Update attention scores: Epoch 0001 | Total Time 541.4s
+2021-05-15 17:45:46,904 - root - INFO - Update attention scores: Epoch 0001 | Total Time 544.1s
+2021-05-15 17:45:49,576 - root - INFO - Update attention scores: Epoch 0001 | Total Time 546.8s
+2021-05-15 17:45:52,247 - root - INFO - Update attention scores: Epoch 0001 | Total Time 549.4s
+2021-05-15 17:45:54,918 - root - INFO - Update attention scores: Epoch 0001 | Total Time 552.1s
+2021-05-15 17:45:57,592 - root - INFO - Update attention scores: Epoch 0001 | Total Time 554.8s
+2021-05-15 17:46:00,263 - root - INFO - Update attention scores: Epoch 0001 | Total Time 557.4s
+2021-05-15 17:46:02,934 - root - INFO - Update attention scores: Epoch 0001 | Total Time 560.1s
+2021-05-15 17:46:05,607 - root - INFO - Update attention scores: Epoch 0001 | Total Time 562.8s
+2021-05-15 17:46:08,281 - root - INFO - Update attention scores: Epoch 0001 | Total Time 565.5s
+2021-05-15 17:46:10,954 - root - INFO - Update attention scores: Epoch 0001 | Total Time 568.1s
+2021-05-15 17:46:13,630 - root - INFO - Update attention scores: Epoch 0001 | Total Time 570.8s
+2021-05-15 17:46:16,305 - root - INFO - Update attention scores: Epoch 0001 | Total Time 573.5s
+2021-05-15 17:46:18,979 - root - INFO - Update attention scores: Epoch 0001 | Total Time 576.2s
+2021-05-15 17:46:21,652 - root - INFO - Update attention scores: Epoch 0001 | Total Time 578.8s
+2021-05-15 17:46:24,322 - root - INFO - Update attention scores: Epoch 0001 | Total Time 581.5s
+2021-05-15 17:46:26,993 - root - INFO - Update attention scores: Epoch 0001 | Total Time 584.2s
+2021-05-15 17:46:29,665 - root - INFO - Update attention scores: Epoch 0001 | Total Time 586.8s
+2021-05-15 17:46:32,336 - root - INFO - Update attention scores: Epoch 0001 | Total Time 589.5s
+2021-05-15 17:46:35,007 - root - INFO - Update attention scores: Epoch 0001 | Total Time 592.2s
+2021-05-15 17:46:37,678 - root - INFO - Update attention scores: Epoch 0001 | Total Time 594.9s
+2021-05-15 17:46:40,350 - root - INFO - Update attention scores: Epoch 0001 | Total Time 597.5s
+2021-05-15 17:46:43,021 - root - INFO - Update attention scores: Epoch 0001 | Total Time 600.2s
+2021-05-15 17:46:45,693 - root - INFO - Update attention scores: Epoch 0001 | Total Time 602.9s
+2021-05-15 17:46:48,364 - root - INFO - Update attention scores: Epoch 0001 | Total Time 605.5s
+2021-05-15 17:46:51,035 - root - INFO - Update attention scores: Epoch 0001 | Total Time 608.2s
+2021-05-15 17:46:53,707 - root - INFO - Update attention scores: Epoch 0001 | Total Time 610.9s
+2021-05-15 17:46:56,378 - root - INFO - Update attention scores: Epoch 0001 | Total Time 613.6s
+2021-05-15 17:46:59,049 - root - INFO - Update attention scores: Epoch 0001 | Total Time 616.2s
+2021-05-15 17:47:01,721 - root - INFO - Update attention scores: Epoch 0001 | Total Time 618.9s
+2021-05-15 17:47:04,393 - root - INFO - Update attention scores: Epoch 0001 | Total Time 621.6s
+2021-05-15 17:47:07,064 - root - INFO - Update attention scores: Epoch 0001 | Total Time 624.2s
+2021-05-15 17:47:09,737 - root - INFO - Update attention scores: Epoch 0001 | Total Time 626.9s
+2021-05-15 17:47:12,408 - root - INFO - Update attention scores: Epoch 0001 | Total Time 629.6s
+2021-05-15 17:47:15,079 - root - INFO - Update attention scores: Epoch 0001 | Total Time 632.3s
+2021-05-15 17:47:17,751 - root - INFO - Update attention scores: Epoch 0001 | Total Time 634.9s
+2021-05-15 17:47:20,422 - root - INFO - Update attention scores: Epoch 0001 | Total Time 637.6s
+2021-05-15 17:47:23,092 - root - INFO - Update attention scores: Epoch 0001 | Total Time 640.3s
+2021-05-15 17:47:25,765 - root - INFO - Update attention scores: Epoch 0001 | Total Time 642.9s
+2021-05-15 17:47:28,435 - root - INFO - Update attention scores: Epoch 0001 | Total Time 645.6s
+2021-05-15 17:47:31,105 - root - INFO - Update attention scores: Epoch 0001 | Total Time 648.3s
+2021-05-15 17:47:33,777 - root - INFO - Update attention scores: Epoch 0001 | Total Time 651.0s
+2021-05-15 17:47:36,449 - root - INFO - Update attention scores: Epoch 0001 | Total Time 653.6s
+2021-05-15 17:47:39,119 - root - INFO - Update attention scores: Epoch 0001 | Total Time 656.3s
+2021-05-15 17:47:41,792 - root - INFO - Update attention scores: Epoch 0001 | Total Time 659.0s
+2021-05-15 17:47:44,463 - root - INFO - Update attention scores: Epoch 0001 | Total Time 661.6s
+2021-05-15 17:47:47,134 - root - INFO - Update attention scores: Epoch 0001 | Total Time 664.3s
+2021-05-15 17:47:49,804 - root - INFO - Update attention scores: Epoch 0001 | Total Time 667.0s
+2021-05-15 17:47:52,476 - root - INFO - Update attention scores: Epoch 0001 | Total Time 669.7s
+2021-05-15 17:47:53,977 - root - INFO - CF Training: Epoch 0001 Iter 0250 / 0469 | Time 2.7s | Iter Loss 0.6661
+2021-05-15 17:47:55,147 - root - INFO - Update attention scores: Epoch 0001 | Total Time 672.3s
+2021-05-15 17:47:57,818 - root - INFO - Update attention scores: Epoch 0001 | Total Time 675.0s
+2021-05-15 17:48:00,489 - root - INFO - Update attention scores: Epoch 0001 | Total Time 677.7s
+2021-05-15 17:48:03,162 - root - INFO - Update attention scores: Epoch 0001 | Total Time 680.3s
+2021-05-15 17:48:05,834 - root - INFO - Update attention scores: Epoch 0001 | Total Time 683.0s
+2021-05-15 17:48:08,504 - root - INFO - Update attention scores: Epoch 0001 | Total Time 685.7s
+2021-05-15 17:48:11,175 - root - INFO - Update attention scores: Epoch 0001 | Total Time 688.4s
+2021-05-15 17:48:13,847 - root - INFO - Update attention scores: Epoch 0001 | Total Time 691.0s
+2021-05-15 17:48:16,519 - root - INFO - Update attention scores: Epoch 0001 | Total Time 693.7s
+2021-05-15 17:48:19,192 - root - INFO - Update attention scores: Epoch 0001 | Total Time 696.4s
+2021-05-15 17:48:21,864 - root - INFO - Update attention scores: Epoch 0001 | Total Time 699.0s
+2021-05-15 17:48:24,536 - root - INFO - Update attention scores: Epoch 0001 | Total Time 701.7s
+2021-05-15 17:48:27,209 - root - INFO - Update attention scores: Epoch 0001 | Total Time 704.4s
+2021-05-15 17:48:29,881 - root - INFO - Update attention scores: Epoch 0001 | Total Time 707.1s
+2021-05-15 17:48:32,553 - root - INFO - Update attention scores: Epoch 0001 | Total Time 709.7s
+2021-05-15 17:48:35,224 - root - INFO - Update attention scores: Epoch 0001 | Total Time 712.4s
+2021-05-15 17:48:37,897 - root - INFO - Update attention scores: Epoch 0001 | Total Time 715.1s
+2021-05-15 17:48:40,569 - root - INFO - Update attention scores: Epoch 0001 | Total Time 717.7s
+2021-05-15 17:48:43,241 - root - INFO - Update attention scores: Epoch 0001 | Total Time 720.4s
+2021-05-15 17:48:45,914 - root - INFO - Update attention scores: Epoch 0001 | Total Time 723.1s
+2021-05-15 17:48:48,585 - root - INFO - Update attention scores: Epoch 0001 | Total Time 725.8s
+2021-05-15 17:48:51,257 - root - INFO - Update attention scores: Epoch 0001 | Total Time 728.4s
+2021-05-15 17:48:53,929 - root - INFO - Update attention scores: Epoch 0001 | Total Time 731.1s
+2021-05-15 17:48:56,601 - root - INFO - Update attention scores: Epoch 0001 | Total Time 733.8s
+2021-05-15 17:48:59,273 - root - INFO - Update attention scores: Epoch 0001 | Total Time 736.5s
+2021-05-15 17:49:01,943 - root - INFO - Update attention scores: Epoch 0001 | Total Time 739.1s
+2021-05-15 17:49:04,616 - root - INFO - Update attention scores: Epoch 0001 | Total Time 741.8s
+2021-05-15 17:49:07,288 - root - INFO - Update attention scores: Epoch 0001 | Total Time 744.5s
+2021-05-15 17:49:09,959 - root - INFO - Update attention scores: Epoch 0001 | Total Time 747.1s
+2021-05-15 17:49:12,632 - root - INFO - Update attention scores: Epoch 0001 | Total Time 749.8s
+2021-05-15 17:49:15,304 - root - INFO - Update attention scores: Epoch 0001 | Total Time 752.5s
+2021-05-15 17:49:17,976 - root - INFO - Update attention scores: Epoch 0001 | Total Time 755.2s
+2021-05-15 17:49:20,647 - root - INFO - Update attention scores: Epoch 0001 | Total Time 757.8s
+2021-05-15 17:49:23,318 - root - INFO - Update attention scores: Epoch 0001 | Total Time 760.5s
+2021-05-15 17:49:25,991 - root - INFO - Update attention scores: Epoch 0001 | Total Time 763.2s
+2021-05-15 17:49:28,663 - root - INFO - Update attention scores: Epoch 0001 | Total Time 765.8s
+2021-05-15 17:49:31,336 - root - INFO - Update attention scores: Epoch 0001 | Total Time 768.5s
+2021-05-15 17:49:34,008 - root - INFO - Update attention scores: Epoch 0001 | Total Time 771.2s
+2021-05-15 17:49:36,679 - root - INFO - Update attention scores: Epoch 0001 | Total Time 773.9s
+2021-05-15 17:49:39,351 - root - INFO - Update attention scores: Epoch 0001 | Total Time 776.5s
+2021-05-15 17:49:42,024 - root - INFO - Update attention scores: Epoch 0001 | Total Time 779.2s
+2021-05-15 17:49:44,695 - root - INFO - Update attention scores: Epoch 0001 | Total Time 781.9s
+2021-05-15 17:49:47,367 - root - INFO - Update attention scores: Epoch 0001 | Total Time 784.5s
+2021-05-15 17:49:50,038 - root - INFO - Update attention scores: Epoch 0001 | Total Time 787.2s
+2021-05-15 17:49:52,711 - root - INFO - Update attention scores: Epoch 0001 | Total Time 789.9s
+2021-05-15 17:49:55,383 - root - INFO - Update attention scores: Epoch 0001 | Total Time 792.6s
+2021-05-15 17:49:58,054 - root - INFO - Update attention scores: Epoch 0001 | Total Time 795.2s
+2021-05-15 17:50:00,727 - root - INFO - Update attention scores: Epoch 0001 | Total Time 797.9s
+2021-05-15 17:50:03,396 - root - INFO - Update attention scores: Epoch 0001 | Total Time 800.6s
+2021-05-15 17:50:06,068 - root - INFO - Update attention scores: Epoch 0001 | Total Time 803.2s
+2021-05-15 17:50:07,569 - root - INFO - CF Training: Epoch 0001 Iter 0300 / 0469 | Time 2.7s | Iter Loss 0.5337
+2021-05-15 17:50:08,741 - root - INFO - Update attention scores: Epoch 0001 | Total Time 805.9s
+2021-05-15 17:50:11,412 - root - INFO - Update attention scores: Epoch 0001 | Total Time 808.6s
+2021-05-15 17:50:14,084 - root - INFO - Update attention scores: Epoch 0001 | Total Time 811.3s
+2021-05-15 17:50:16,758 - root - INFO - Update attention scores: Epoch 0001 | Total Time 813.9s
+2021-05-15 17:50:19,430 - root - INFO - Update attention scores: Epoch 0001 | Total Time 816.6s
+2021-05-15 17:50:22,103 - root - INFO - Update attention scores: Epoch 0001 | Total Time 819.3s
+2021-05-15 17:50:24,775 - root - INFO - Update attention scores: Epoch 0001 | Total Time 822.0s
+2021-05-15 17:50:27,447 - root - INFO - Update attention scores: Epoch 0001 | Total Time 824.6s
+2021-05-15 17:50:30,119 - root - INFO - Update attention scores: Epoch 0001 | Total Time 827.3s
+2021-05-15 17:50:32,791 - root - INFO - Update attention scores: Epoch 0001 | Total Time 830.0s
+2021-05-15 17:50:35,464 - root - INFO - Update attention scores: Epoch 0001 | Total Time 832.6s
+2021-05-15 17:50:38,135 - root - INFO - Update attention scores: Epoch 0001 | Total Time 835.3s
+2021-05-15 17:50:40,808 - root - INFO - Update attention scores: Epoch 0001 | Total Time 838.0s
+2021-05-15 17:50:43,480 - root - INFO - Update attention scores: Epoch 0001 | Total Time 840.7s
+2021-05-15 17:50:46,152 - root - INFO - Update attention scores: Epoch 0001 | Total Time 843.3s
+2021-05-15 17:50:48,824 - root - INFO - Update attention scores: Epoch 0001 | Total Time 846.0s
+2021-05-15 17:50:51,495 - root - INFO - Update attention scores: Epoch 0001 | Total Time 848.7s
+2021-05-15 17:50:54,167 - root - INFO - Update attention scores: Epoch 0001 | Total Time 851.3s
+2021-05-15 17:50:56,839 - root - INFO - Update attention scores: Epoch 0001 | Total Time 854.0s
+2021-05-15 17:50:59,510 - root - INFO - Update attention scores: Epoch 0001 | Total Time 856.7s
+2021-05-15 17:51:02,182 - root - INFO - Update attention scores: Epoch 0001 | Total Time 859.4s
+2021-05-15 17:51:04,852 - root - INFO - Update attention scores: Epoch 0001 | Total Time 862.0s
+2021-05-15 17:51:07,523 - root - INFO - Update attention scores: Epoch 0001 | Total Time 864.7s
+2021-05-15 17:51:10,195 - root - INFO - Update attention scores: Epoch 0001 | Total Time 867.4s
+2021-05-15 17:51:12,867 - root - INFO - Update attention scores: Epoch 0001 | Total Time 870.0s
+2021-05-15 17:51:15,538 - root - INFO - Update attention scores: Epoch 0001 | Total Time 872.7s
+2021-05-15 17:51:18,210 - root - INFO - Update attention scores: Epoch 0001 | Total Time 875.4s
+2021-05-15 17:51:20,882 - root - INFO - Update attention scores: Epoch 0001 | Total Time 878.1s
+2021-05-15 17:51:23,554 - root - INFO - Update attention scores: Epoch 0001 | Total Time 880.7s
+2021-05-15 17:51:26,226 - root - INFO - Update attention scores: Epoch 0001 | Total Time 883.4s
+2021-05-15 17:51:30,424 - root - INFO - Update attention scores: Epoch 0001 | Total Time 887.6s
+2021-05-15 17:51:33,096 - root - INFO - Update attention scores: Epoch 0001 | Total Time 890.3s
+2021-05-15 17:51:35,768 - root - INFO - Update attention scores: Epoch 0001 | Total Time 892.9s
+2021-05-15 17:51:38,439 - root - INFO - Update attention scores: Epoch 0001 | Total Time 895.6s
+2021-05-15 17:51:41,110 - root - INFO - Update attention scores: Epoch 0001 | Total Time 898.3s
+2021-05-15 17:51:43,782 - root - INFO - Update attention scores: Epoch 0001 | Total Time 901.0s
+2021-05-15 17:51:46,455 - root - INFO - Update attention scores: Epoch 0001 | Total Time 903.6s
+2021-05-15 17:51:49,127 - root - INFO - Update attention scores: Epoch 0001 | Total Time 906.3s
+2021-05-15 17:51:51,798 - root - INFO - Update attention scores: Epoch 0001 | Total Time 909.0s
+2021-05-15 17:51:54,470 - root - INFO - Update attention scores: Epoch 0001 | Total Time 911.6s
+2021-05-15 17:51:57,141 - root - INFO - Update attention scores: Epoch 0001 | Total Time 914.3s
+2021-05-15 17:51:59,813 - root - INFO - Update attention scores: Epoch 0001 | Total Time 917.0s
+2021-05-15 17:52:02,485 - root - INFO - Update attention scores: Epoch 0001 | Total Time 919.7s
+2021-05-15 17:52:05,156 - root - INFO - Update attention scores: Epoch 0001 | Total Time 922.3s
+2021-05-15 17:52:07,829 - root - INFO - Update attention scores: Epoch 0001 | Total Time 925.0s
+2021-05-15 17:52:10,501 - root - INFO - Update attention scores: Epoch 0001 | Total Time 927.7s
+2021-05-15 17:52:13,172 - root - INFO - Update attention scores: Epoch 0001 | Total Time 930.4s
+2021-05-15 17:52:15,844 - root - INFO - Update attention scores: Epoch 0001 | Total Time 933.0s
+2021-05-15 17:52:18,516 - root - INFO - Update attention scores: Epoch 0001 | Total Time 935.7s
+2021-05-15 17:52:21,187 - root - INFO - Update attention scores: Epoch 0001 | Total Time 938.4s
+2021-05-15 17:52:22,687 - root - INFO - CF Training: Epoch 0001 Iter 0350 / 0469 | Time 2.7s | Iter Loss 0.5039
+2021-05-15 17:52:23,859 - root - INFO - Update attention scores: Epoch 0001 | Total Time 941.0s
+2021-05-15 17:52:26,531 - root - INFO - Update attention scores: Epoch 0001 | Total Time 943.7s
+2021-05-15 17:52:29,204 - root - INFO - Update attention scores: Epoch 0001 | Total Time 946.4s
+2021-05-15 17:52:31,874 - root - INFO - Update attention scores: Epoch 0001 | Total Time 949.1s
+2021-05-15 17:52:34,546 - root - INFO - Update attention scores: Epoch 0001 | Total Time 951.7s
+2021-05-15 17:52:37,218 - root - INFO - Update attention scores: Epoch 0001 | Total Time 954.4s
+2021-05-15 17:52:39,889 - root - INFO - Update attention scores: Epoch 0001 | Total Time 957.1s
+2021-05-15 17:52:42,561 - root - INFO - Update attention scores: Epoch 0001 | Total Time 959.7s
+2021-05-15 17:52:45,233 - root - INFO - Update attention scores: Epoch 0001 | Total Time 962.4s
+2021-05-15 17:52:47,905 - root - INFO - Update attention scores: Epoch 0001 | Total Time 965.1s
+2021-05-15 17:52:50,576 - root - INFO - Update attention scores: Epoch 0001 | Total Time 967.8s
+2021-05-15 17:52:53,248 - root - INFO - Update attention scores: Epoch 0001 | Total Time 970.4s
+2021-05-15 17:52:55,920 - root - INFO - Update attention scores: Epoch 0001 | Total Time 973.1s
+2021-05-15 17:52:58,592 - root - INFO - Update attention scores: Epoch 0001 | Total Time 975.8s
+2021-05-15 17:53:01,265 - root - INFO - Update attention scores: Epoch 0001 | Total Time 978.4s
+2021-05-15 17:53:03,937 - root - INFO - Update attention scores: Epoch 0001 | Total Time 981.1s
+2021-05-15 17:53:06,608 - root - INFO - Update attention scores: Epoch 0001 | Total Time 983.8s
+2021-05-15 17:53:09,280 - root - INFO - Update attention scores: Epoch 0001 | Total Time 986.5s
+2021-05-15 17:53:11,953 - root - INFO - Update attention scores: Epoch 0001 | Total Time 989.1s
+2021-05-15 17:53:14,625 - root - INFO - Update attention scores: Epoch 0001 | Total Time 991.8s
+2021-05-15 17:53:17,297 - root - INFO - Update attention scores: Epoch 0001 | Total Time 994.5s
+2021-05-15 17:53:19,969 - root - INFO - Update attention scores: Epoch 0001 | Total Time 997.1s
+2021-05-15 17:53:22,641 - root - INFO - Update attention scores: Epoch 0001 | Total Time 999.8s
+2021-05-15 17:53:25,313 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1002.5s
+2021-05-15 17:53:27,986 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1005.2s
+2021-05-15 17:53:30,656 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1007.8s
+2021-05-15 17:53:33,326 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1010.5s
+2021-05-15 17:53:35,999 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1013.2s
+2021-05-15 17:53:38,671 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1015.8s
+2021-05-15 17:53:41,343 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1018.5s
+2021-05-15 17:53:44,015 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1021.2s
+2021-05-15 17:53:46,687 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1023.9s
+2021-05-15 17:53:49,359 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1026.5s
+2021-05-15 17:53:52,032 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1029.2s
+2021-05-15 17:53:54,705 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1031.9s
+2021-05-15 17:53:57,377 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1034.6s
+2021-05-15 17:54:00,049 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1037.2s
+2021-05-15 17:54:02,721 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1039.9s
+2021-05-15 17:54:05,393 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1042.6s
+2021-05-15 17:54:08,065 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1045.2s
+2021-05-15 17:54:10,737 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1047.9s
+2021-05-15 17:54:13,409 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1050.6s
+2021-05-15 17:54:16,081 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1053.3s
+2021-05-15 17:54:18,753 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1055.9s
+2021-05-15 17:54:21,424 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1058.6s
+2021-05-15 17:54:24,096 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1061.3s
+2021-05-15 17:54:26,769 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1063.9s
+2021-05-15 17:54:29,440 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1066.6s
+2021-05-15 17:54:32,112 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1069.3s
+2021-05-15 17:54:34,784 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1072.0s
+2021-05-15 17:54:36,285 - root - INFO - CF Training: Epoch 0001 Iter 0400 / 0469 | Time 2.7s | Iter Loss 0.7714
+2021-05-15 17:54:37,457 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1074.6s
+2021-05-15 17:54:40,129 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1077.3s
+2021-05-15 17:54:42,801 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1080.0s
+2021-05-15 17:54:45,473 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1082.7s
+2021-05-15 17:54:48,145 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1085.3s
+2021-05-15 17:54:50,819 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1088.0s
+2021-05-15 17:54:53,491 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1090.7s
+2021-05-15 17:54:56,162 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1093.3s
+2021-05-15 17:54:58,835 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1096.0s
+2021-05-15 17:55:01,507 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1098.7s
+2021-05-15 17:55:04,180 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1101.4s
+2021-05-15 17:55:06,852 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1104.0s
+2021-05-15 17:55:09,524 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1106.7s
+2021-05-15 17:55:12,196 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1109.4s
+2021-05-15 17:55:14,868 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1112.0s
+2021-05-15 17:55:17,538 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1114.7s
+2021-05-15 17:55:20,211 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1117.4s
+2021-05-15 17:55:22,880 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1120.1s
+2021-05-15 17:55:25,553 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1122.7s
+2021-05-15 17:55:28,224 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1125.4s
+2021-05-15 17:55:30,896 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1128.1s
+2021-05-15 17:55:33,567 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1130.7s
+2021-05-15 17:55:36,240 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1133.4s
+2021-05-15 17:55:38,912 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1136.1s
+2021-05-15 17:55:41,585 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1138.8s
+2021-05-15 17:55:44,256 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1141.4s
+2021-05-15 17:55:46,928 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1144.1s
+2021-05-15 17:55:49,599 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1146.8s
+2021-05-15 17:55:52,273 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1149.5s
+2021-05-15 17:55:54,945 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1152.1s
+2021-05-15 17:55:57,618 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1154.8s
+2021-05-15 17:56:00,290 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1157.5s
+2021-05-15 17:56:02,963 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1160.1s
+2021-05-15 17:56:05,635 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1162.8s
+2021-05-15 17:56:08,307 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1165.5s
+2021-05-15 17:56:10,977 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1168.2s
+2021-05-15 17:56:13,650 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1170.8s
+2021-05-15 17:56:16,322 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1173.5s
+2021-05-15 17:56:18,994 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1176.2s
+2021-05-15 17:56:21,666 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1178.8s
+2021-05-15 17:56:24,337 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1181.5s
+2021-05-15 17:56:27,009 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1184.2s
+2021-05-15 17:56:29,681 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1186.9s
+2021-05-15 17:56:32,353 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1189.5s
+2021-05-15 17:56:35,025 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1192.2s
+2021-05-15 17:56:37,697 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1194.9s
+2021-05-15 17:56:40,371 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1197.5s
+2021-05-15 17:56:43,043 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1200.2s
+2021-05-15 17:56:45,715 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1202.9s
+2021-05-15 17:56:48,388 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1205.6s
+2021-05-15 17:56:49,888 - root - INFO - CF Training: Epoch 0001 Iter 0450 / 0469 | Time 2.7s | Iter Loss 0.4156
+2021-05-15 17:56:51,058 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1208.2s
+2021-05-15 17:56:53,730 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1210.9s
+2021-05-15 17:56:56,403 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1213.6s
+2021-05-15 17:56:59,074 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1216.3s
+2021-05-15 17:57:01,746 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1218.9s
+2021-05-15 17:57:04,419 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1221.6s
+2021-05-15 17:57:07,091 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1224.3s
+2021-05-15 17:57:09,764 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1226.9s
+2021-05-15 17:57:12,435 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1229.6s
+2021-05-15 17:57:15,108 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1232.3s
+2021-05-15 17:57:17,779 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1235.0s
+2021-05-15 17:57:20,451 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1237.6s
+2021-05-15 17:57:23,123 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1240.3s
+2021-05-15 17:57:25,796 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1243.0s
+2021-05-15 17:57:28,471 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1245.6s
+2021-05-15 17:57:31,147 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1248.3s
+2021-05-15 17:57:33,822 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1251.0s
+2021-05-15 17:57:36,498 - root - INFO - Update attention scores: Epoch 0001 | Total Time 1253.7s
+2021-05-15 17:57:37,440 - root - INFO - CF Training: Epoch 0001 Total Iter 0469 | Total Time 1254.6s | Iter Mean Loss 0.5891
+2021-05-15 17:57:42,591 - root - INFO - Fine-tuning Evaluation: Epoch 0000 | Total Time 5.2s | Precision 0.1243 Recall 0.2486 NDCG 0.2345
+2021-05-15 17:57:42,647 - root - INFO - Save model on epoch 0000!
+2021-05-15 17:57:47,782 - root - INFO - Fine-tuning Evaluation: Epoch 0001 | Total Time 5.1s | Precision 0.1243 Recall 0.2486 NDCG 0.2351
+2021-05-15 17:57:52,913 - root - INFO - Fine-tuning Evaluation: Epoch 0002 | Total Time 5.1s | Precision 0.1248 Recall 0.2495 NDCG 0.2359
+2021-05-15 17:57:52,978 - root - INFO - Save model on epoch 0002!
+2021-05-15 17:57:58,116 - root - INFO - Fine-tuning Evaluation: Epoch 0003 | Total Time 5.1s | Precision 0.1250 Recall 0.2500 NDCG 0.2368
+2021-05-15 17:57:58,181 - root - INFO - Save model on epoch 0003!
+2021-05-15 17:58:03,316 - root - INFO - Fine-tuning Evaluation: Epoch 0004 | Total Time 5.1s | Precision 0.1257 Recall 0.2514 NDCG 0.2382
+2021-05-15 17:58:03,381 - root - INFO - Save model on epoch 0004!
+2021-05-15 17:58:08,517 - root - INFO - Fine-tuning Evaluation: Epoch 0005 | Total Time 5.1s | Precision 0.1257 Recall 0.2514 NDCG 0.2392
+2021-05-15 17:58:08,582 - root - INFO - Save model on epoch 0005!
+2021-05-15 17:58:13,717 - root - INFO - Fine-tuning Evaluation: Epoch 0006 | Total Time 5.1s | Precision 0.1266 Recall 0.2532 NDCG 0.2408
+2021-05-15 17:58:13,782 - root - INFO - Save model on epoch 0006!
+2021-05-15 17:58:18,920 - root - INFO - Fine-tuning Evaluation: Epoch 0007 | Total Time 5.1s | Precision 0.1273 Recall 0.2546 NDCG 0.2423
+2021-05-15 17:58:18,985 - root - INFO - Save model on epoch 0007!
+2021-05-15 17:58:24,120 - root - INFO - Fine-tuning Evaluation: Epoch 0008 | Total Time 5.1s | Precision 0.1275 Recall 0.2551 NDCG 0.2436
+2021-05-15 17:58:24,185 - root - INFO - Save model on epoch 0008!
+2021-05-15 17:58:29,320 - root - INFO - Fine-tuning Evaluation: Epoch 0009 | Total Time 5.1s | Precision 0.1294 Recall 0.2588 NDCG 0.2463
+2021-05-15 17:58:29,385 - root - INFO - Save model on epoch 0009!
+2021-05-15 17:58:34,495 - root - INFO - Fine-tuning Evaluation: Epoch 0010 | Total Time 5.1s | Precision 0.1299 Recall 0.2597 NDCG 0.2472
+2021-05-15 17:58:34,558 - root - INFO - Save model on epoch 0010!
+2021-05-15 17:58:39,661 - root - INFO - Fine-tuning Evaluation: Epoch 0011 | Total Time 5.1s | Precision 0.1296 Recall 0.2593 NDCG 0.2473
+2021-05-15 17:58:44,761 - root - INFO - Fine-tuning Evaluation: Epoch 0012 | Total Time 5.1s | Precision 0.1299 Recall 0.2597 NDCG 0.2477
+2021-05-15 17:58:49,862 - root - INFO - Fine-tuning Evaluation: Epoch 0013 | Total Time 5.1s | Precision 0.1296 Recall 0.2593 NDCG 0.2481
+2021-05-15 17:58:54,963 - root - INFO - Fine-tuning Evaluation: Epoch 0014 | Total Time 5.1s | Precision 0.1296 Recall 0.2593 NDCG 0.2481
+2021-05-15 17:59:00,068 - root - INFO - Fine-tuning Evaluation: Epoch 0015 | Total Time 5.1s | Precision 0.1296 Recall 0.2593 NDCG 0.2485
+2021-05-15 17:59:05,170 - root - INFO - Fine-tuning Evaluation: Epoch 0016 | Total Time 5.1s | Precision 0.1301 Recall 0.2602 NDCG 0.2487
+2021-05-15 17:59:05,233 - root - INFO - Save model on epoch 0016!
+2021-05-15 17:59:10,340 - root - INFO - Fine-tuning Evaluation: Epoch 0017 | Total Time 5.1s | Precision 0.1306 Recall 0.2611 NDCG 0.2501
+2021-05-15 17:59:10,403 - root - INFO - Save model on epoch 0017!
+2021-05-15 17:59:15,509 - root - INFO - Fine-tuning Evaluation: Epoch 0018 | Total Time 5.1s | Precision 0.1308 Recall 0.2616 NDCG 0.2504
+2021-05-15 17:59:15,572 - root - INFO - Save model on epoch 0018!
+2021-05-15 17:59:20,681 - root - INFO - Fine-tuning Evaluation: Epoch 0019 | Total Time 5.1s | Precision 0.1313 Recall 0.2625 NDCG 0.2513
+2021-05-15 17:59:20,744 - root - INFO - Save model on epoch 0019!
+2021-05-15 17:59:25,851 - root - INFO - Fine-tuning Evaluation: Epoch 0020 | Total Time 5.1s | Precision 0.1315 Recall 0.2630 NDCG 0.2519
+2021-05-15 17:59:25,914 - root - INFO - Save model on epoch 0020!
+2021-05-15 17:59:31,021 - root - INFO - Fine-tuning Evaluation: Epoch 0021 | Total Time 5.1s | Precision 0.1313 Recall 0.2625 NDCG 0.2522
+2021-05-15 17:59:36,120 - root - INFO - Fine-tuning Evaluation: Epoch 0022 | Total Time 5.1s | Precision 0.1315 Recall 0.2630 NDCG 0.2522
+2021-05-15 17:59:41,224 - root - INFO - Fine-tuning Evaluation: Epoch 0023 | Total Time 5.1s | Precision 0.1315 Recall 0.2630 NDCG 0.2526
+2021-05-15 17:59:46,328 - root - INFO - Fine-tuning Evaluation: Epoch 0024 | Total Time 5.1s | Precision 0.1317 Recall 0.2634 NDCG 0.2529
+2021-05-15 17:59:46,387 - root - INFO - Save model on epoch 0024!
+2021-05-15 17:59:51,497 - root - INFO - Fine-tuning Evaluation: Epoch 0025 | Total Time 5.1s | Precision 0.1317 Recall 0.2634 NDCG 0.2531
+2021-05-15 17:59:56,598 - root - INFO - Fine-tuning Evaluation: Epoch 0026 | Total Time 5.1s | Precision 0.1317 Recall 0.2634 NDCG 0.2538
+2021-05-15 18:00:01,702 - root - INFO - Fine-tuning Evaluation: Epoch 0027 | Total Time 5.1s | Precision 0.1319 Recall 0.2639 NDCG 0.2543
+2021-05-15 18:00:01,760 - root - INFO - Save model on epoch 0027!
+2021-05-15 18:00:06,864 - root - INFO - Fine-tuning Evaluation: Epoch 0028 | Total Time 5.1s | Precision 0.1331 Recall 0.2662 NDCG 0.2555
+2021-05-15 18:00:06,928 - root - INFO - Save model on epoch 0028!
+2021-05-15 18:00:12,037 - root - INFO - Fine-tuning Evaluation: Epoch 0029 | Total Time 5.1s | Precision 0.1338 Recall 0.2676 NDCG 0.2571
+2021-05-15 18:00:12,100 - root - INFO - Save model on epoch 0029!
+2021-05-15 18:00:17,204 - root - INFO - Fine-tuning Evaluation: Epoch 0030 | Total Time 5.1s | Precision 0.1343 Recall 0.2685 NDCG 0.2577
+2021-05-15 18:00:17,267 - root - INFO - Save model on epoch 0030!
+2021-05-15 18:00:22,373 - root - INFO - Fine-tuning Evaluation: Epoch 0031 | Total Time 5.1s | Precision 0.1333 Recall 0.2667 NDCG 0.2569
+2021-05-15 18:00:27,474 - root - INFO - Fine-tuning Evaluation: Epoch 0032 | Total Time 5.1s | Precision 0.1333 Recall 0.2667 NDCG 0.2573
+2021-05-15 18:00:32,576 - root - INFO - Fine-tuning Evaluation: Epoch 0033 | Total Time 5.1s | Precision 0.1329 Recall 0.2657 NDCG 0.2570
+2021-05-15 18:00:37,676 - root - INFO - Fine-tuning Evaluation: Epoch 0034 | Total Time 5.1s | Precision 0.1336 Recall 0.2671 NDCG 0.2574
+2021-05-15 18:00:42,780 - root - INFO - Fine-tuning Evaluation: Epoch 0035 | Total Time 5.1s | Precision 0.1338 Recall 0.2676 NDCG 0.2571
+2021-05-15 18:00:47,879 - root - INFO - Fine-tuning Evaluation: Epoch 0036 | Total Time 5.1s | Precision 0.1340 Recall 0.2681 NDCG 0.2576
+2021-05-15 18:00:52,986 - root - INFO - Fine-tuning Evaluation: Epoch 0037 | Total Time 5.1s | Precision 0.1347 Recall 0.2694 NDCG 0.2584
+2021-05-15 18:00:53,049 - root - INFO - Save model on epoch 0037!
+2021-05-15 18:00:58,154 - root - INFO - Fine-tuning Evaluation: Epoch 0038 | Total Time 5.1s | Precision 0.1347 Recall 0.2694 NDCG 0.2589
+2021-05-15 18:01:03,256 - root - INFO - Fine-tuning Evaluation: Epoch 0039 | Total Time 5.1s | Precision 0.1347 Recall 0.2694 NDCG 0.2602
+2021-05-15 18:01:08,356 - root - INFO - Fine-tuning Evaluation: Epoch 0040 | Total Time 5.1s | Precision 0.1352 Recall 0.2704 NDCG 0.2612
+2021-05-15 18:01:08,419 - root - INFO - Save model on epoch 0040!
+2021-05-15 18:01:13,526 - root - INFO - Fine-tuning Evaluation: Epoch 0041 | Total Time 5.1s | Precision 0.1356 Recall 0.2713 NDCG 0.2614
+2021-05-15 18:01:13,589 - root - INFO - Save model on epoch 0041!
+2021-05-15 18:01:18,692 - root - INFO - Fine-tuning Evaluation: Epoch 0042 | Total Time 5.1s | Precision 0.1366 Recall 0.2731 NDCG 0.2624
+2021-05-15 18:01:18,755 - root - INFO - Save model on epoch 0042!
+2021-05-15 18:01:23,860 - root - INFO - Fine-tuning Evaluation: Epoch 0043 | Total Time 5.1s | Precision 0.1363 Recall 0.2727 NDCG 0.2619
+2021-05-15 18:01:28,960 - root - INFO - Fine-tuning Evaluation: Epoch 0044 | Total Time 5.1s | Precision 0.1366 Recall 0.2731 NDCG 0.2623
+2021-05-15 18:01:34,063 - root - INFO - Fine-tuning Evaluation: Epoch 0045 | Total Time 5.1s | Precision 0.1373 Recall 0.2745 NDCG 0.2629
+2021-05-15 18:01:34,121 - root - INFO - Save model on epoch 0045!
+2021-05-15 18:01:39,226 - root - INFO - Fine-tuning Evaluation: Epoch 0046 | Total Time 5.1s | Precision 0.1380 Recall 0.2759 NDCG 0.2643
+2021-05-15 18:01:39,289 - root - INFO - Save model on epoch 0046!
+2021-05-15 18:01:44,395 - root - INFO - Fine-tuning Evaluation: Epoch 0047 | Total Time 5.1s | Precision 0.1391 Recall 0.2782 NDCG 0.2666
+2021-05-15 18:01:44,458 - root - INFO - Save model on epoch 0047!
+2021-05-15 18:01:49,560 - root - INFO - Fine-tuning Evaluation: Epoch 0048 | Total Time 5.1s | Precision 0.1387 Recall 0.2773 NDCG 0.2663
+2021-05-15 18:01:54,661 - root - INFO - Fine-tuning Evaluation: Epoch 0049 | Total Time 5.1s | Precision 0.1391 Recall 0.2782 NDCG 0.2668
+2021-05-15 18:01:59,764 - root - INFO - Fine-tuning Evaluation: Epoch 0050 | Total Time 5.1s | Precision 0.1394 Recall 0.2787 NDCG 0.2678
+2021-05-15 18:01:59,827 - root - INFO - Save model on epoch 0050!
+2021-05-15 18:02:04,930 - root - INFO - Fine-tuning Evaluation: Epoch 0051 | Total Time 5.1s | Precision 0.1391 Recall 0.2782 NDCG 0.2679
+2021-05-15 18:02:10,030 - root - INFO - Fine-tuning Evaluation: Epoch 0052 | Total Time 5.1s | Precision 0.1398 Recall 0.2796 NDCG 0.2673
+2021-05-15 18:02:10,089 - root - INFO - Save model on epoch 0052!
+2021-05-15 18:02:15,194 - root - INFO - Fine-tuning Evaluation: Epoch 0053 | Total Time 5.1s | Precision 0.1398 Recall 0.2796 NDCG 0.2670
+2021-05-15 18:02:20,294 - root - INFO - Fine-tuning Evaluation: Epoch 0054 | Total Time 5.1s | Precision 0.1394 Recall 0.2787 NDCG 0.2670
+2021-05-15 18:02:25,396 - root - INFO - Fine-tuning Evaluation: Epoch 0055 | Total Time 5.1s | Precision 0.1398 Recall 0.2796 NDCG 0.2677
+2021-05-15 18:02:30,497 - root - INFO - Fine-tuning Evaluation: Epoch 0056 | Total Time 5.1s | Precision 0.1403 Recall 0.2806 NDCG 0.2693
+2021-05-15 18:02:30,560 - root - INFO - Save model on epoch 0056!
+2021-05-15 18:02:35,663 - root - INFO - Fine-tuning Evaluation: Epoch 0057 | Total Time 5.1s | Precision 0.1398 Recall 0.2796 NDCG 0.2690
+2021-05-15 18:02:40,764 - root - INFO - Fine-tuning Evaluation: Epoch 0058 | Total Time 5.1s | Precision 0.1398 Recall 0.2796 NDCG 0.2687
+2021-05-15 18:02:45,869 - root - INFO - Fine-tuning Evaluation: Epoch 0059 | Total Time 5.1s | Precision 0.1412 Recall 0.2824 NDCG 0.2697
+2021-05-15 18:02:45,932 - root - INFO - Save model on epoch 0059!
+2021-05-15 18:02:51,033 - root - INFO - Fine-tuning Evaluation: Epoch 0060 | Total Time 5.1s | Precision 0.1410 Recall 0.2819 NDCG 0.2700
+2021-05-15 18:02:56,135 - root - INFO - Fine-tuning Evaluation: Epoch 0061 | Total Time 5.1s | Precision 0.1405 Recall 0.2810 NDCG 0.2698
+2021-05-15 18:03:01,236 - root - INFO - Fine-tuning Evaluation: Epoch 0062 | Total Time 5.1s | Precision 0.1412 Recall 0.2824 NDCG 0.2711
+2021-05-15 18:03:01,294 - root - INFO - Save model on epoch 0062!
+2021-05-15 18:03:06,399 - root - INFO - Fine-tuning Evaluation: Epoch 0063 | Total Time 5.1s | Precision 0.1407 Recall 0.2815 NDCG 0.2708
+2021-05-15 18:03:11,499 - root - INFO - Fine-tuning Evaluation: Epoch 0064 | Total Time 5.1s | Precision 0.1412 Recall 0.2824 NDCG 0.2714
+2021-05-15 18:03:16,603 - root - INFO - Fine-tuning Evaluation: Epoch 0065 | Total Time 5.1s | Precision 0.1412 Recall 0.2824 NDCG 0.2712
+2021-05-15 18:03:21,704 - root - INFO - Fine-tuning Evaluation: Epoch 0066 | Total Time 5.1s | Precision 0.1414 Recall 0.2829 NDCG 0.2718
+2021-05-15 18:03:21,763 - root - INFO - Save model on epoch 0066!
+2021-05-15 18:03:26,868 - root - INFO - Fine-tuning Evaluation: Epoch 0067 | Total Time 5.1s | Precision 0.1417 Recall 0.2833 NDCG 0.2720
+2021-05-15 18:03:26,932 - root - INFO - Save model on epoch 0067!
+2021-05-15 18:03:32,034 - root - INFO - Fine-tuning Evaluation: Epoch 0068 | Total Time 5.1s | Precision 0.1424 Recall 0.2847 NDCG 0.2737
+2021-05-15 18:03:32,097 - root - INFO - Save model on epoch 0068!
+2021-05-15 18:03:37,203 - root - INFO - Fine-tuning Evaluation: Epoch 0069 | Total Time 5.1s | Precision 0.1419 Recall 0.2838 NDCG 0.2728
+2021-05-15 18:03:42,305 - root - INFO - Fine-tuning Evaluation: Epoch 0070 | Total Time 5.1s | Precision 0.1419 Recall 0.2838 NDCG 0.2733
+2021-05-15 18:03:47,406 - root - INFO - Fine-tuning Evaluation: Epoch 0071 | Total Time 5.1s | Precision 0.1424 Recall 0.2847 NDCG 0.2740
+2021-05-15 18:03:47,469 - root - INFO - Save model on epoch 0071!
+2021-05-15 18:03:52,570 - root - INFO - Fine-tuning Evaluation: Epoch 0072 | Total Time 5.1s | Precision 0.1419 Recall 0.2838 NDCG 0.2729
+2021-05-15 18:03:57,673 - root - INFO - Fine-tuning Evaluation: Epoch 0073 | Total Time 5.1s | Precision 0.1414 Recall 0.2829 NDCG 0.2726
+2021-05-15 18:04:02,774 - root - INFO - Fine-tuning Evaluation: Epoch 0074 | Total Time 5.1s | Precision 0.1412 Recall 0.2824 NDCG 0.2720
+2021-05-15 18:04:07,876 - root - INFO - Fine-tuning Evaluation: Epoch 0075 | Total Time 5.1s | Precision 0.1410 Recall 0.2819 NDCG 0.2722
+2021-05-15 18:04:12,977 - root - INFO - Fine-tuning Evaluation: Epoch 0076 | Total Time 5.1s | Precision 0.1419 Recall 0.2838 NDCG 0.2728
+2021-05-15 18:04:18,079 - root - INFO - Fine-tuning Evaluation: Epoch 0077 | Total Time 5.1s | Precision 0.1419 Recall 0.2838 NDCG 0.2735
+2021-05-15 18:04:23,182 - root - INFO - Fine-tuning Evaluation: Epoch 0078 | Total Time 5.1s | Precision 0.1414 Recall 0.2829 NDCG 0.2740
+2021-05-15 18:04:28,286 - root - INFO - Fine-tuning Evaluation: Epoch 0079 | Total Time 5.1s | Precision 0.1419 Recall 0.2838 NDCG 0.2735
+2021-05-15 18:04:33,386 - root - INFO - Fine-tuning Evaluation: Epoch 0080 | Total Time 5.1s | Precision 0.1417 Recall 0.2833 NDCG 0.2725
+2021-05-15 18:04:38,489 - root - INFO - Fine-tuning Evaluation: Epoch 0081 | Total Time 5.1s | Precision 0.1419 Recall 0.2838 NDCG 0.2733
+2021-05-15 18:04:43,588 - root - INFO - Fine-tuning Evaluation: Epoch 0082 | Total Time 5.1s | Precision 0.1421 Recall 0.2843 NDCG 0.2742
+2021-05-15 18:04:48,693 - root - INFO - Fine-tuning Evaluation: Epoch 0083 | Total Time 5.1s | Precision 0.1424 Recall 0.2847 NDCG 0.2744
+2021-05-15 18:04:48,751 - root - INFO - Save model on epoch 0083!
+2021-05-15 18:04:53,855 - root - INFO - Fine-tuning Evaluation: Epoch 0084 | Total Time 5.1s | Precision 0.1421 Recall 0.2843 NDCG 0.2753
+2021-05-15 18:04:58,956 - root - INFO - Fine-tuning Evaluation: Epoch 0085 | Total Time 5.1s | Precision 0.1424 Recall 0.2847 NDCG 0.2755
+2021-05-15 18:05:04,056 - root - INFO - Fine-tuning Evaluation: Epoch 0086 | Total Time 5.1s | Precision 0.1424 Recall 0.2847 NDCG 0.2753
+2021-05-15 18:05:10,640 - root - INFO - Fine-tuning Evaluation: Epoch 0087 | Total Time 6.6s | Precision 0.1424 Recall 0.2847 NDCG 0.2750
+2021-05-15 18:05:15,741 - root - INFO - Fine-tuning Evaluation: Epoch 0088 | Total Time 5.1s | Precision 0.1428 Recall 0.2856 NDCG 0.2759
+2021-05-15 18:05:15,804 - root - INFO - Save model on epoch 0088!
+2021-05-15 18:05:20,909 - root - INFO - Fine-tuning Evaluation: Epoch 0089 | Total Time 5.1s | Precision 0.1417 Recall 0.2833 NDCG 0.2746
+2021-05-15 18:05:26,010 - root - INFO - Fine-tuning Evaluation: Epoch 0090 | Total Time 5.1s | Precision 0.1419 Recall 0.2838 NDCG 0.2741
+2021-05-15 18:05:31,111 - root - INFO - Fine-tuning Evaluation: Epoch 0091 | Total Time 5.1s | Precision 0.1421 Recall 0.2843 NDCG 0.2754
+2021-05-15 18:05:36,212 - root - INFO - Fine-tuning Evaluation: Epoch 0092 | Total Time 5.1s | Precision 0.1428 Recall 0.2856 NDCG 0.2763
+2021-05-15 18:05:36,275 - root - INFO - Save model on epoch 0092!
+2021-05-15 18:05:41,379 - root - INFO - Fine-tuning Evaluation: Epoch 0093 | Total Time 5.1s | Precision 0.1433 Recall 0.2866 NDCG 0.2774
+2021-05-15 18:05:41,442 - root - INFO - Save model on epoch 0093!
+2021-05-15 18:05:46,546 - root - INFO - Fine-tuning Evaluation: Epoch 0094 | Total Time 5.1s | Precision 0.1435 Recall 0.2870 NDCG 0.2779
+2021-05-15 18:05:46,609 - root - INFO - Save model on epoch 0094!
+2021-05-15 18:05:51,714 - root - INFO - Fine-tuning Evaluation: Epoch 0095 | Total Time 5.1s | Precision 0.1447 Recall 0.2894 NDCG 0.2792
+2021-05-15 18:05:51,777 - root - INFO - Save model on epoch 0095!
+2021-05-15 18:05:56,878 - root - INFO - Fine-tuning Evaluation: Epoch 0096 | Total Time 5.1s | Precision 0.1438 Recall 0.2875 NDCG 0.2779
+2021-05-15 18:06:01,981 - root - INFO - Fine-tuning Evaluation: Epoch 0097 | Total Time 5.1s | Precision 0.1442 Recall 0.2884 NDCG 0.2786
+2021-05-15 18:06:07,081 - root - INFO - Fine-tuning Evaluation: Epoch 0098 | Total Time 5.1s | Precision 0.1438 Recall 0.2875 NDCG 0.2785
+2021-05-15 18:06:12,183 - root - INFO - Fine-tuning Evaluation: Epoch 0099 | Total Time 5.1s | Precision 0.1438 Recall 0.2875 NDCG 0.2788
+2021-05-15 18:06:17,285 - root - INFO - Fine-tuning Evaluation: Epoch 0100 | Total Time 5.1s | Precision 0.1442 Recall 0.2884 NDCG 0.2795
+2021-05-15 18:06:22,390 - root - INFO - Fine-tuning Evaluation: Epoch 0101 | Total Time 5.1s | Precision 0.1442 Recall 0.2884 NDCG 0.2795
+2021-05-15 18:06:27,489 - root - INFO - Fine-tuning Evaluation: Epoch 0102 | Total Time 5.1s | Precision 0.1440 Recall 0.2880 NDCG 0.2793
+2021-05-15 18:06:32,592 - root - INFO - Fine-tuning Evaluation: Epoch 0103 | Total Time 5.1s | Precision 0.1435 Recall 0.2870 NDCG 0.2792
+2021-05-15 18:06:37,692 - root - INFO - Fine-tuning Evaluation: Epoch 0104 | Total Time 5.1s | Precision 0.1440 Recall 0.2880 NDCG 0.2791
+2021-05-15 18:06:42,796 - root - INFO - Fine-tuning Evaluation: Epoch 0105 | Total Time 5.1s | Precision 0.1440 Recall 0.2880 NDCG 0.2796
+2021-05-15 18:06:47,897 - root - INFO - Fine-tuning Evaluation: Epoch 0106 | Total Time 5.1s | Precision 0.1444 Recall 0.2889 NDCG 0.2796
+2021-05-15 18:06:52,998 - root - INFO - Fine-tuning Evaluation: Epoch 0107 | Total Time 5.1s | Precision 0.1440 Recall 0.2880 NDCG 0.2785
+2021-05-15 18:06:58,097 - root - INFO - Fine-tuning Evaluation: Epoch 0108 | Total Time 5.1s | Precision 0.1451 Recall 0.2903 NDCG 0.2800
+2021-05-15 18:06:58,160 - root - INFO - Save model on epoch 0108!
+2021-05-15 18:07:03,263 - root - INFO - Fine-tuning Evaluation: Epoch 0109 | Total Time 5.1s | Precision 0.1444 Recall 0.2889 NDCG 0.2796
+2021-05-15 18:07:08,365 - root - INFO - Fine-tuning Evaluation: Epoch 0110 | Total Time 5.1s | Precision 0.1449 Recall 0.2898 NDCG 0.2798
+2021-05-15 18:07:13,468 - root - INFO - Fine-tuning Evaluation: Epoch 0111 | Total Time 5.1s | Precision 0.1447 Recall 0.2894 NDCG 0.2798
+2021-05-15 18:07:18,569 - root - INFO - Fine-tuning Evaluation: Epoch 0112 | Total Time 5.1s | Precision 0.1449 Recall 0.2898 NDCG 0.2797
+2021-05-15 18:07:23,671 - root - INFO - Fine-tuning Evaluation: Epoch 0113 | Total Time 5.1s | Precision 0.1451 Recall 0.2903 NDCG 0.2800
+2021-05-15 18:07:28,770 - root - INFO - Fine-tuning Evaluation: Epoch 0114 | Total Time 5.1s | Precision 0.1447 Recall 0.2894 NDCG 0.2800
+2021-05-15 18:07:33,871 - root - INFO - Fine-tuning Evaluation: Epoch 0115 | Total Time 5.1s | Precision 0.1447 Recall 0.2894 NDCG 0.2794
+2021-05-15 18:07:38,971 - root - INFO - Fine-tuning Evaluation: Epoch 0116 | Total Time 5.1s | Precision 0.1449 Recall 0.2898 NDCG 0.2797
+2021-05-15 18:07:44,072 - root - INFO - Fine-tuning Evaluation: Epoch 0117 | Total Time 5.1s | Precision 0.1449 Recall 0.2898 NDCG 0.2798
+2021-05-15 18:07:49,171 - root - INFO - Fine-tuning Evaluation: Epoch 0118 | Total Time 5.1s | Precision 0.1449 Recall 0.2898 NDCG 0.2802
+2021-05-15 18:07:54,273 - root - INFO - Fine-tuning Evaluation: Epoch 0119 | Total Time 5.1s | Precision 0.1461 Recall 0.2921 NDCG 0.2813
+2021-05-15 18:07:54,335 - root - INFO - Save model on epoch 0119!
+2021-05-15 18:07:59,435 - root - INFO - Fine-tuning Evaluation: Epoch 0120 | Total Time 5.1s | Precision 0.1454 Recall 0.2907 NDCG 0.2812
+2021-05-15 18:08:04,536 - root - INFO - Fine-tuning Evaluation: Epoch 0121 | Total Time 5.1s | Precision 0.1458 Recall 0.2917 NDCG 0.2807
+2021-05-15 18:08:09,636 - root - INFO - Fine-tuning Evaluation: Epoch 0122 | Total Time 5.1s | Precision 0.1454 Recall 0.2907 NDCG 0.2792
+2021-05-15 18:08:14,739 - root - INFO - Fine-tuning Evaluation: Epoch 0123 | Total Time 5.1s | Precision 0.1442 Recall 0.2884 NDCG 0.2780
+2021-05-15 18:08:19,839 - root - INFO - Fine-tuning Evaluation: Epoch 0124 | Total Time 5.1s | Precision 0.1442 Recall 0.2884 NDCG 0.2780
+2021-05-15 18:08:24,941 - root - INFO - Fine-tuning Evaluation: Epoch 0125 | Total Time 5.1s | Precision 0.1449 Recall 0.2898 NDCG 0.2797
+2021-05-15 18:08:30,041 - root - INFO - Fine-tuning Evaluation: Epoch 0126 | Total Time 5.1s | Precision 0.1456 Recall 0.2912 NDCG 0.2808
+2021-05-15 18:08:35,143 - root - INFO - Fine-tuning Evaluation: Epoch 0127 | Total Time 5.1s | Precision 0.1444 Recall 0.2889 NDCG 0.2790
+2021-05-15 18:08:40,242 - root - INFO - Fine-tuning Evaluation: Epoch 0128 | Total Time 5.1s | Precision 0.1449 Recall 0.2898 NDCG 0.2798
+2021-05-15 18:08:45,345 - root - INFO - Fine-tuning Evaluation: Epoch 0129 | Total Time 5.1s | Precision 0.1447 Recall 0.2894 NDCG 0.2788
+2021-05-15 18:08:50,444 - root - INFO - Fine-tuning Evaluation: Epoch 0130 | Total Time 5.1s | Precision 0.1447 Recall 0.2894 NDCG 0.2782
+2021-05-15 18:08:55,544 - root - INFO - Fine-tuning Evaluation: Epoch 0131 | Total Time 5.1s | Precision 0.1447 Recall 0.2894 NDCG 0.2784
+2021-05-15 18:09:00,644 - root - INFO - Fine-tuning Evaluation: Epoch 0132 | Total Time 5.1s | Precision 0.1447 Recall 0.2894 NDCG 0.2785
+2021-05-15 18:09:05,745 - root - INFO - Fine-tuning Evaluation: Epoch 0133 | Total Time 5.1s | Precision 0.1449 Recall 0.2898 NDCG 0.2792
+2021-05-15 18:09:10,845 - root - INFO - Fine-tuning Evaluation: Epoch 0134 | Total Time 5.1s | Precision 0.1447 Recall 0.2894 NDCG 0.2794
+2021-05-15 18:09:15,945 - root - INFO - Fine-tuning Evaluation: Epoch 0135 | Total Time 5.1s | Precision 0.1454 Recall 0.2907 NDCG 0.2798
+2021-05-15 18:09:21,043 - root - INFO - Fine-tuning Evaluation: Epoch 0136 | Total Time 5.1s | Precision 0.1451 Recall 0.2903 NDCG 0.2800
+2021-05-15 18:09:26,148 - root - INFO - Fine-tuning Evaluation: Epoch 0137 | Total Time 5.1s | Precision 0.1458 Recall 0.2917 NDCG 0.2805
+2021-05-15 18:09:31,249 - root - INFO - Fine-tuning Evaluation: Epoch 0138 | Total Time 5.1s | Precision 0.1458 Recall 0.2917 NDCG 0.2810
+2021-05-15 18:09:36,351 - root - INFO - Fine-tuning Evaluation: Epoch 0139 | Total Time 5.1s | Precision 0.1449 Recall 0.2898 NDCG 0.2793
+2021-05-15 18:09:39,824 - root - INFO - Final CF Evaluation: Precision 0.1449 Recall 0.2898 NDCG 0.2793

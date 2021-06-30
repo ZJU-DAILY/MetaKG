@@ -1,0 +1,93 @@
+2021-06-05 10:43:06,087 - root - INFO - Namespace(K=20, K1=10, aggregation_type='bi-interaction', cf_batch_size=16, cf_l2loss_lambda=1e-05, cf_print_every=100, conv_dim_list='[64, 32, 16]', data_dir='datasets/', data_name='yelp2018', entity_dim=64, evaluate_every=1, fine_tuning_batch_size=16, kg_batch_size=1024, kg_l2loss_lambda=1e-05, kg_print_every=100, local_lr=0.0001, local_rank=0, lr=0.0001, mess_dropout='[0.1, 0.1, 0.1]', n_epoch=1000, pretrain_embedding_dir='datasets/pretrain/', pretrain_model_path='trained_model/model.pth', relation_dim=64, save_dir='trained_model/KGAT/yelp2018/entitydim64_relationdim64_bi-interaction_64-32-16_lr0.0001_pretrain1/', seed=123, stopping_steps=30, test_batch_size=5000, use_pretrain=1)
+2021-06-05 10:43:10,709 - numexpr.utils - INFO - Note: NumExpr detected 20 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2021-06-05 10:43:10,710 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2021-06-05 10:48:30,262 - root - INFO - n_users:            45919
+2021-06-05 10:48:30,263 - root - INFO - n_items:            45538
+2021-06-05 10:48:30,263 - root - INFO - n_entities:         136499
+2021-06-05 10:48:30,263 - root - INFO - n_users_entities:   182418
+2021-06-05 10:48:30,263 - root - INFO - n_relations:        86
+2021-06-05 10:48:30,263 - root - INFO - n_cf_train:         357219
+2021-06-05 10:48:30,263 - root - INFO - n_cf_test:          237300
+2021-06-05 10:48:30,263 - root - INFO - n_kg_train:         4421846
+2021-06-05 10:48:30,263 - root - INFO - n_kg_test:          4182008
+2021-06-05 10:53:46,098 - root - INFO - n_users:            45919
+2021-06-05 10:53:46,098 - root - INFO - n_items:            45538
+2021-06-05 10:53:46,098 - root - INFO - n_entities:         136499
+2021-06-05 10:53:46,098 - root - INFO - n_users_entities:   182418
+2021-06-05 10:53:46,098 - root - INFO - n_relations:        86
+2021-06-05 10:53:46,098 - root - INFO - n_cf_train:         127142
+2021-06-05 10:53:46,098 - root - INFO - n_cf_test:          69580
+2021-06-05 10:53:46,098 - root - INFO - n_kg_train:         3961692
+2021-06-05 10:53:46,098 - root - INFO - n_kg_test:          3846568
+2021-06-05 10:54:02,277 - root - INFO - KGAT(
+  (relation_embed): Embedding(86, 64)
+  (entity_user_embed): Embedding(182418, 64)
+  (aggregator_layers): ModuleList(
+    (0): Aggregator(
+      (message_dropout): Dropout(p=0.1, inplace=False)
+      (W1): Linear(in_features=64, out_features=64, bias=True)
+      (W2): Linear(in_features=64, out_features=64, bias=True)
+      (activation): LeakyReLU(negative_slope=0.01)
+    )
+    (1): Aggregator(
+      (message_dropout): Dropout(p=0.1, inplace=False)
+      (W1): Linear(in_features=64, out_features=32, bias=True)
+      (W2): Linear(in_features=64, out_features=32, bias=True)
+      (activation): LeakyReLU(negative_slope=0.01)
+    )
+    (2): Aggregator(
+      (message_dropout): Dropout(p=0.1, inplace=False)
+      (W1): Linear(in_features=32, out_features=16, bias=True)
+      (W2): Linear(in_features=32, out_features=16, bias=True)
+      (activation): LeakyReLU(negative_slope=0.01)
+    )
+  )
+)
+2021-06-05 10:54:05,432 - root - INFO - Meta Training: Epoch 0001 Iter 0000 / 1484 | Time 3.1s | Iter Loss 0.8459
+2021-06-05 10:58:34,854 - root - INFO - Meta Training: Epoch 0001 Iter 0100 / 1484 | Time 2.7s | Iter Loss 0.6909
+2021-06-05 11:03:05,722 - root - INFO - Meta Training: Epoch 0001 Iter 0200 / 1484 | Time 2.7s | Iter Loss 0.8513
+2021-06-05 11:07:35,269 - root - INFO - Meta Training: Epoch 0001 Iter 0300 / 1484 | Time 2.7s | Iter Loss 0.5733
+2021-06-05 11:12:04,784 - root - INFO - Meta Training: Epoch 0001 Iter 0400 / 1484 | Time 2.7s | Iter Loss 0.4897
+2021-06-05 11:16:34,264 - root - INFO - Meta Training: Epoch 0001 Iter 0500 / 1484 | Time 2.7s | Iter Loss 0.5562
+2021-06-05 11:21:03,759 - root - INFO - Meta Training: Epoch 0001 Iter 0600 / 1484 | Time 2.7s | Iter Loss 0.5130
+2021-06-05 11:25:34,638 - root - INFO - Meta Training: Epoch 0001 Iter 0700 / 1484 | Time 2.7s | Iter Loss 0.4182
+2021-06-05 11:30:04,206 - root - INFO - Meta Training: Epoch 0001 Iter 0800 / 1484 | Time 2.7s | Iter Loss 0.4315
+2021-06-05 11:34:34,077 - root - INFO - Meta Training: Epoch 0001 Iter 0900 / 1484 | Time 2.7s | Iter Loss 0.5738
+2021-06-05 11:39:03,990 - root - INFO - Meta Training: Epoch 0001 Iter 1000 / 1484 | Time 2.7s | Iter Loss 0.4185
+2021-06-05 11:43:34,997 - root - INFO - Meta Training: Epoch 0001 Iter 1100 / 1484 | Time 2.7s | Iter Loss 0.6269
+2021-06-05 11:48:05,958 - root - INFO - Meta Training: Epoch 0001 Iter 1200 / 1484 | Time 2.8s | Iter Loss 0.2646
+2021-06-05 11:52:38,281 - root - INFO - Meta Training: Epoch 0001 Iter 1300 / 1484 | Time 2.7s | Iter Loss 0.3700
+2021-06-05 11:57:07,847 - root - INFO - Meta Training: Epoch 0001 Iter 1400 / 1484 | Time 2.7s | Iter Loss 0.3818
+2021-06-05 12:00:50,455 - root - INFO - Meta Training: Epoch 0001 Total Iter 1484 | Total Time 4008.1s | Iter Mean Loss 0.5544
+2021-06-05 12:01:28,206 - root - INFO - Fine-tuning Evaluation: Epoch 0000 | Total Time 37.8s | Precision10 0.0843 Recall10 0.0843 NDCG10 0.0935 Precision20 0.0680 Recall20 0.1359 NDCG20 0.1220
+2021-06-05 12:01:28,266 - root - INFO - Save model on epoch 0000!
+2021-06-05 12:02:04,108 - root - INFO - Fine-tuning Evaluation: Epoch 0001 | Total Time 35.8s | Precision10 0.0820 Recall10 0.0820 NDCG10 0.0913 Precision20 0.0664 Recall20 0.1328 NDCG20 0.1193
+2021-06-05 12:02:39,944 - root - INFO - Fine-tuning Evaluation: Epoch 0002 | Total Time 35.8s | Precision10 0.0813 Recall10 0.0813 NDCG10 0.0903 Precision20 0.0656 Recall20 0.1311 NDCG20 0.1178
+2021-06-05 12:03:15,776 - root - INFO - Fine-tuning Evaluation: Epoch 0003 | Total Time 35.8s | Precision10 0.0807 Recall10 0.0807 NDCG10 0.0896 Precision20 0.0651 Recall20 0.1302 NDCG20 0.1169
+2021-06-05 12:03:51,607 - root - INFO - Fine-tuning Evaluation: Epoch 0004 | Total Time 35.8s | Precision10 0.0807 Recall10 0.0807 NDCG10 0.0893 Precision20 0.0650 Recall20 0.1301 NDCG20 0.1166
+2021-06-05 12:04:27,437 - root - INFO - Fine-tuning Evaluation: Epoch 0005 | Total Time 35.8s | Precision10 0.0798 Recall10 0.0798 NDCG10 0.0888 Precision20 0.0647 Recall20 0.1294 NDCG20 0.1162
+2021-06-05 12:05:03,291 - root - INFO - Fine-tuning Evaluation: Epoch 0006 | Total Time 35.9s | Precision10 0.0785 Recall10 0.0785 NDCG10 0.0874 Precision20 0.0638 Recall20 0.1276 NDCG20 0.1146
+2021-06-05 12:05:39,136 - root - INFO - Fine-tuning Evaluation: Epoch 0007 | Total Time 35.8s | Precision10 0.0788 Recall10 0.0788 NDCG10 0.0876 Precision20 0.0638 Recall20 0.1276 NDCG20 0.1146
+2021-06-05 12:06:14,984 - root - INFO - Fine-tuning Evaluation: Epoch 0008 | Total Time 35.8s | Precision10 0.0794 Recall10 0.0794 NDCG10 0.0881 Precision20 0.0642 Recall20 0.1284 NDCG20 0.1151
+2021-06-05 12:06:50,823 - root - INFO - Fine-tuning Evaluation: Epoch 0009 | Total Time 35.8s | Precision10 0.0796 Recall10 0.0796 NDCG10 0.0883 Precision20 0.0645 Recall20 0.1290 NDCG20 0.1156
+2021-06-05 12:07:26,655 - root - INFO - Fine-tuning Evaluation: Epoch 0010 | Total Time 35.8s | Precision10 0.0783 Recall10 0.0783 NDCG10 0.0870 Precision20 0.0635 Recall20 0.1270 NDCG20 0.1139
+2021-06-05 12:08:02,486 - root - INFO - Fine-tuning Evaluation: Epoch 0011 | Total Time 35.8s | Precision10 0.0788 Recall10 0.0788 NDCG10 0.0874 Precision20 0.0639 Recall20 0.1277 NDCG20 0.1144
+2021-06-05 12:08:38,315 - root - INFO - Fine-tuning Evaluation: Epoch 0012 | Total Time 35.8s | Precision10 0.0783 Recall10 0.0783 NDCG10 0.0868 Precision20 0.0634 Recall20 0.1268 NDCG20 0.1135
+2021-06-05 12:09:15,543 - root - INFO - Fine-tuning Evaluation: Epoch 0013 | Total Time 37.2s | Precision10 0.0796 Recall10 0.0796 NDCG10 0.0884 Precision20 0.0645 Recall20 0.1290 NDCG20 0.1157
+2021-06-05 12:09:51,408 - root - INFO - Fine-tuning Evaluation: Epoch 0014 | Total Time 35.9s | Precision10 0.0796 Recall10 0.0796 NDCG10 0.0886 Precision20 0.0645 Recall20 0.1289 NDCG20 0.1159
+2021-06-05 12:10:27,243 - root - INFO - Fine-tuning Evaluation: Epoch 0015 | Total Time 35.8s | Precision10 0.0781 Recall10 0.0781 NDCG10 0.0869 Precision20 0.0634 Recall20 0.1269 NDCG20 0.1138
+2021-06-05 12:11:03,076 - root - INFO - Fine-tuning Evaluation: Epoch 0016 | Total Time 35.8s | Precision10 0.0793 Recall10 0.0793 NDCG10 0.0881 Precision20 0.0640 Recall20 0.1280 NDCG20 0.1150
+2021-06-05 12:11:38,912 - root - INFO - Fine-tuning Evaluation: Epoch 0017 | Total Time 35.8s | Precision10 0.0793 Recall10 0.0793 NDCG10 0.0881 Precision20 0.0639 Recall20 0.1279 NDCG20 0.1149
+2021-06-05 12:12:14,740 - root - INFO - Fine-tuning Evaluation: Epoch 0018 | Total Time 35.8s | Precision10 0.0788 Recall10 0.0788 NDCG10 0.0875 Precision20 0.0639 Recall20 0.1279 NDCG20 0.1147
+2021-06-05 12:12:50,563 - root - INFO - Fine-tuning Evaluation: Epoch 0019 | Total Time 35.8s | Precision10 0.0789 Recall10 0.0789 NDCG10 0.0876 Precision20 0.0640 Recall20 0.1279 NDCG20 0.1147
+2021-06-05 12:13:26,386 - root - INFO - Fine-tuning Evaluation: Epoch 0020 | Total Time 35.8s | Precision10 0.0784 Recall10 0.0784 NDCG10 0.0870 Precision20 0.0634 Recall20 0.1268 NDCG20 0.1137
+2021-06-05 12:14:02,232 - root - INFO - Fine-tuning Evaluation: Epoch 0021 | Total Time 35.8s | Precision10 0.0788 Recall10 0.0788 NDCG10 0.0875 Precision20 0.0637 Recall20 0.1275 NDCG20 0.1144
+2021-06-05 12:14:38,112 - root - INFO - Fine-tuning Evaluation: Epoch 0022 | Total Time 35.9s | Precision10 0.0794 Recall10 0.0794 NDCG10 0.0880 Precision20 0.0642 Recall20 0.1284 NDCG20 0.1151
+2021-06-05 12:15:13,650 - root - INFO - Fine-tuning Evaluation: Epoch 0023 | Total Time 35.5s | Precision10 0.0789 Recall10 0.0789 NDCG10 0.0876 Precision20 0.0637 Recall20 0.1274 NDCG20 0.1144
+2021-06-05 12:15:49,164 - root - INFO - Fine-tuning Evaluation: Epoch 0024 | Total Time 35.5s | Precision10 0.0794 Recall10 0.0794 NDCG10 0.0881 Precision20 0.0639 Recall20 0.1278 NDCG20 0.1148
+2021-06-05 12:16:24,679 - root - INFO - Fine-tuning Evaluation: Epoch 0025 | Total Time 35.5s | Precision10 0.0804 Recall10 0.0804 NDCG10 0.0891 Precision20 0.0646 Recall20 0.1293 NDCG20 0.1161
+2021-06-05 12:17:00,218 - root - INFO - Fine-tuning Evaluation: Epoch 0026 | Total Time 35.5s | Precision10 0.0792 Recall10 0.0792 NDCG10 0.0879 Precision20 0.0638 Recall20 0.1276 NDCG20 0.1146
+2021-06-05 12:17:35,744 - root - INFO - Fine-tuning Evaluation: Epoch 0027 | Total Time 35.5s | Precision10 0.0794 Recall10 0.0794 NDCG10 0.0881 Precision20 0.0640 Recall20 0.1279 NDCG20 0.1149
+2021-06-05 12:18:11,273 - root - INFO - Fine-tuning Evaluation: Epoch 0028 | Total Time 35.5s | Precision10 0.0789 Recall10 0.0789 NDCG10 0.0875 Precision20 0.0633 Recall20 0.1266 NDCG20 0.1138
+2021-06-05 12:18:46,805 - root - INFO - Fine-tuning Evaluation: Epoch 0029 | Total Time 35.5s | Precision10 0.0784 Recall10 0.0784 NDCG10 0.0870 Precision20 0.0632 Recall20 0.1263 NDCG20 0.1135
+2021-06-05 12:19:22,318 - root - INFO - Fine-tuning Evaluation: Epoch 0030 | Total Time 35.5s | Precision10 0.0799 Recall10 0.0799 NDCG10 0.0886 Precision20 0.0645 Recall20 0.1289 NDCG20 0.1157
