@@ -22,10 +22,10 @@ The prepared folder structure is like this:
 
 ```
 - Datasets
-	- pretrain
-	- amazon-book
-		- rawdata
-			- reviews_Books_5.json.gz
+    - pretrain
+    - amazon-book
+	- rawdata
+		- reviews_Books_5.json.gz
     - last-fm
     	- rawdata
     		- LFM-1b_albums.txt
