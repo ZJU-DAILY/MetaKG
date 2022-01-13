@@ -4,7 +4,6 @@ import numpy as np
 import json
 import tqdm
 import random
-import pandas as pd
 import collections
 import time
 random.seed(2020)
@@ -188,6 +187,7 @@ def first_reach_yelp(path):
     with open(path+'rawdata/yelp_academic_dataset_user.json', 'r') as f:
         for line in f:
             tmp = json.loads(line)
+            # print(tmp)
             # print(type(tmp))
             # print(type(tmp['user_id']), tmp['user_id'], type(tmp['yelping_since']), tmp['yelping_since'])
             user_id = tmp['user_id']
@@ -208,6 +208,7 @@ def first_reach_yelp(path):
     with open(path+'rawdata/yelp_academic_dataset_review.json', 'r') as f:
         for line in f:
             tmp = json.loads(line)
+            # print(tmp)
             # print(type(tmp))
             # print(type(tmp['business_id']),tmp['business_id'], type(tmp['date']),tmp['date'])
             business_id = tmp['business_id']
@@ -395,13 +396,17 @@ def support_query_set(path):
 if __name__ == '__main__':
     state = ['meta_training', 'warm_up', 'user_cold', 'item_cold', 'user_item_cold']
 
-    path = './datasets/amazon-book/'
-    # path = './datasets/last-fm/'
-    # path = './datasets/yelp2018/'
+    dataset = 'last-fm' # 'amazon-book', 'last-fm', 'yelp2018'
 
-    first_reach_amazon(path)
-    # first_reach_lfm(path)
-    # first_reach_yelp(path)
+    if dataset == 'amazon-book':
+        path = './datasets/amazon-book/'
+        first_reach_amazon(path)
+    elif dataset == 'last-fm':
+        path = './datasets/last-fm/'
+        first_reach_lfm(path)
+    elif dataset == 'yelp2018':
+        path = './datasets/yelp2018/'
+        first_reach_yelp(path)
     
     merge_train_vali_test(path)
     contruct_test_scenario(path)
@@ -409,12 +414,3 @@ if __name__ == '__main__':
 
     # extract_ui_rating_amazon(path)
     # extract_ui_rating_yelp(path)
-    
-
-
-
-
-
-
-
-

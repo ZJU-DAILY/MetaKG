@@ -1,13 +1,15 @@
 # MetaKG
 
-Source code for MetaKG: Meta-learning on Knowledge Graph for Cold-start Recommendation
+This is our Pytorch implementation for the paper:
+
+> Yuntao Du, Xinjun Zhu, Lu Chen, Ziquan Fang and Yunjun Gao (2022). MetaKG: Meta-learning on Knowledge Graph for Cold-start Recommendation
 
 ## Environment Requirements
 
 - Ubuntu OS
 - Python >= 3.8 (Anaconda3 is recommended)
 - PyTorch 1.7+
-- A Nvidia GPU with cuda 11.1+ (RTX 3090 is preferred)
+- A Nvidia GPU with cuda 11.1+
 
 ## Datasets
 
@@ -40,16 +42,20 @@ The prepared folder structure is like this:
 
 ## Train
 
-1. Cold-start scenario constructing (it may take a while)
-
+1. Now, we have provided the cold-start scenario data of last-fm. The codes for constructing the other datasets is as follows.
    ```shell
    python construct_data.py
    ```
 
-2. Start training (the log of learning process can be found in `trained_model` folder)
-
+2. Start training
+   
+   Here, we have provided the "meta-model" after meta-training, so you can adapt directly to cold-start scenarios.
    ```shell
-   python main_MetaKG.py
+   python main.py --dataset last-fm --use_meta_model True
+   ```
+   You can also retrain the entire model.
+   ```shell
+   python main.py --dataset last-fm --use_meta_model False
    ```
 
 ## Reference

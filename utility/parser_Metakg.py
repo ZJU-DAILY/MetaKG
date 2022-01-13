@@ -1,81 +1,50 @@
 import argparse
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="MetaKG")
 
-def parse_Metakg_args():
-    parser = argparse.ArgumentParser(description="Run MetaKG.")
+    # ===== dataset ===== #
+    # Amazon_meta-train batch_size=4 meta_batch_size=2 num_inner_update=1 node_dropout=0.4
+    # Yelp2018_meta-train batch_size=5 meta_batch_size=2 num_inner_update=1 node_dropout=0.4
+    # LastFM_meta-train batch_size=6 meta_batch_size=2 num_inner_update=2 node_dropout=0.5
+    parser.add_argument("--dataset", nargs="?", default="last-fm",
+                        help="Choose a dataset:[last-fm,amazon-book,alibaba,yelp2018,movie-lens,Book-Crossing]")
+    parser.add_argument("--cold_scenario", nargs="?", default="user_item_cold", help="[user_cold, item_cold, user_item_cold, warm_up]")
 
-    parser.add_argument('--local_rank', type=int, default=0,
-                        help='Local rank for using multi GPUs.')
+    parser.add_argument("--data_path", nargs="?", default="datasets/", help="Input data path.")
 
-    parser.add_argument('--seed', type=int, default=123,
-                        help='Random seed.')
+    # ===== train ===== #
+    parser.add_argument('--epoch', type=int, default=1000, help='number of epochs')
+    parser.add_argument('--fine_tune_batch_size', type=int, default=512, help='fine tune batch size')
+    parser.add_argument('--batch_size', type=int, default=6, help='batch size')
+    parser.add_argument('--meta_batch_size', type=int, default=2, help='meta batch size')
+    parser.add_argument('--num_inner_update', type=int, default=2, help='number of inner update')
+    parser.add_argument('--test_batch_size', type=int, default=2048, help='batch size')
+    parser.add_argument('--dim', type=int, default=64, help='embedding size')
+    parser.add_argument('--l2', type=float, default=1e-5, help='l2 regularization weight')
+    parser.add_argument('--lr', type=float, default=0.0001, help='learning rate')
+    parser.add_argument('--meta_update_lr', type=float, default=0.01, help='meta update learning rate')
+    parser.add_argument('--scheduler_lr', type=float, default=0.001, help='scheduler learning rate')
+    parser.add_argument("--inverse_r", type=bool, default=True, help="consider inverse relation or not")
+    parser.add_argument("--node_dropout", type=bool, default=True, help="consider node dropout or not")
+    parser.add_argument("--node_dropout_rate", type=float, default=0.5, help="ratio of node dropout")
+    parser.add_argument("--mess_dropout", type=bool, default=True, help="consider message dropout or not")
+    parser.add_argument("--mess_dropout_rate", type=float, default=0.1, help="ratio of node dropout")
+    parser.add_argument("--batch_test_flag", type=bool, default=True, help="use gpu or not")
+    parser.add_argument("--channel", type=int, default=64, help="hidden channels for model")
+    parser.add_argument("--cuda", type=bool, default=True, help="use gpu or not")
+    parser.add_argument("--gpu_id", type=int, default=0, help="gpu id")
+    parser.add_argument('--Ks', nargs='?', default='[20, 40, 60, 80, 100]', help='Output sizes of every layer')
+    parser.add_argument('--test_flag', nargs='?', default='part',
+                        help='Specify the test type from {part, full}, indicating whether the reference is done in mini-batch')
 
-    parser.add_argument('--data_name', nargs='?', default='amazon-book',
-                        help='Choose a dataset from {yelp2018, last-fm, amazon-book}')
-    parser.add_argument('--data_dir', nargs='?', default='datasets/',
-                        help='Input data path.')
+    parser.add_argument('--context_hops', type=int, default=3, help='number of context hops')
+    parser.add_argument('--use_gate', type=int, default=True, help='use gate or not')
+    parser.add_argument('--use_pretrain', type=int, default=True, help='use pretrain data or not')
+    parser.add_argument("--use_meta_model", type=bool, default=True, help="use trained meta model to adapt")
 
-    parser.add_argument('--use_pretrain', type=int, default=1,
-                        help='0: No pretrain, 1: Pretrain with the learned embeddings, 2: Pretrain with stored model.')
-    parser.add_argument('--pretrain_embedding_dir', nargs='?', default='datasets/pretrain/',
-                        help='Path of learned embeddings.')
-    parser.add_argument('--pretrain_model_path', nargs='?', default='trained_model/model.pth',
-                        help='Path of stored model.')
+    # ===== save model ===== #
+    parser.add_argument("--save", type=bool, default=True, help="save model or not")
+    parser.add_argument("--out_dir", type=str, default="./model_para/", help="output directory for model")
 
-    parser.add_argument('--cf_batch_size', type=int, default=16,
-                        help='CF batch size.')
-    parser.add_argument('--kg_batch_size', type=int, default=1024,
-                        help='KG batch size.')
-    parser.add_argument('--fine_tuning_batch_size', type=int, default=16,
-                        help='fine_tuning_batch_size.')
-    parser.add_argument('--test_batch_size', type=int, default=5000,
-                        help='Test batch size (the user number to test every batch).')
-
-    parser.add_argument('--entity_dim', type=int, default=64,
-                        help='User / entity Embedding size.')
-    parser.add_argument('--relation_dim', type=int, default=64,
-                        help='Relation Embedding size.')
-
-    parser.add_argument('--aggregation_type', nargs='?', default='bi-interaction',
-                        help='Specify the type of the aggregation layer from {gcn, graphsage, bi-interaction}.')
-    parser.add_argument('--conv_dim_list', nargs='?', default='[64, 32, 16]',
-                        help='Output sizes of every aggregation layer.')
-    parser.add_argument('--mess_dropout', nargs='?', default='[0.1, 0.1, 0.1]',
-                        help='Dropout probability w.r.t. message dropout for each deep layer. 0: no dropout.')
-
-    parser.add_argument('--kg_l2loss_lambda', type=float, default=1e-5,
-                        help='Lambda when calculating KG l2 loss.')
-    parser.add_argument('--cf_l2loss_lambda', type=float, default=1e-5,
-                        help='Lambda when calculating CF l2 loss.')
-
-    parser.add_argument('--lr', type=float, default=0.0001,
-                        help='Learning rate.')
-    parser.add_argument('--local_lr', type=float, default=0.0001,
-                        help='local learning rate.')
-    parser.add_argument('--n_epoch', type=int, default=1000,
-                        help='Number of epoch.')
-    parser.add_argument('--stopping_steps', type=int, default=20,
-                        help='Number of epoch for early stopping')
-
-    parser.add_argument('--cf_print_every', type=int, default=100,
-                        help='Iter interval of printing CF loss.')
-    parser.add_argument('--kg_print_every', type=int, default=100,
-                        help='Iter interval of printing KG loss.')
-    parser.add_argument('--evaluate_every', type=int, default=1,
-                        help='Epoch interval of evaluating CF.')
-    
-    parser.add_argument('--K1', type=int, default=10,
-                        help='Calculate metric@K when evaluating.')
-    parser.add_argument('--K', type=int, default=20,
-                        help='Calculate metric@K when evaluating.')
-
-    args = parser.parse_args()
-
-    save_dir = 'trained_model/MetaKG/{}/size5_entitydim{}_relationdim{}_{}_{}_lr{}_pretrain{}/'.format(
-        args.data_name, args.entity_dim, args.relation_dim, args.aggregation_type,
-        '-'.join([str(i) for i in eval(args.conv_dim_list)]), args.lr, args.use_pretrain)
-    args.save_dir = save_dir
-
-    return args
-
-
+    return parser.parse_args()
