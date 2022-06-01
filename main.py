@@ -88,6 +88,8 @@ def get_net_parameter_dict(params):
 
     return param_dict, indexes
 
+def update_moving_avg(mavg, reward, count):
+    return mavg + (reward.item() - mavg) / (count + 1)
 
 if __name__ == '__main__':
     """fix the random seed"""
@@ -141,7 +143,7 @@ if __name__ == '__main__':
     scheduler = Scheduler(len(names_weights_copy), grad_indexes=indexes).to(device)
 
     """define optimizer"""
-    optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
+    optimizer = torch.optim.Adam(model.parameters(), lr=args.meta_update_lr)
     scheduler_optimizer = torch.optim.Adam(scheduler.parameters(), lr=args.scheduler_lr)
 
     """prepare feed data"""
@@ -155,7 +157,6 @@ if __name__ == '__main__':
 
     # support_cold_set = get_feed_dict_meta(cold_user_dict['train_user_set'])
 
-    
     if args.use_meta_model:
         model.load_state_dict(torch.load('./model_para/meta_model_{}.ckpt'.format(args.dataset)))
     else:
@@ -164,6 +165,7 @@ if __name__ == '__main__':
         # meta-training ui_interaction
         interact_mat = convert_to_sparse_tensor(mean_mat_list)
         model.interact_mat = interact_mat
+        moving_avg_reward = 0
 
         model.train()
         iter_num = math.ceil(len(support_meta_set) / args.batch_size)
@@ -187,21 +189,24 @@ if __name__ == '__main__':
             """KG loss"""
             h, r, pos_t, neg_t = get_feed_kg(kg_graph)
             kg_loss = model.forward_kg(h, r, pos_t, neg_t)
-            meta_batch_loss += kg_loss
-
-            """update network"""
-            optimizer.zero_grad()
-            meta_batch_loss.backward()
-            optimizer.step()
+            batch_loss = kg_loss + meta_batch_loss
 
             """update scheduler"""
             loss_scheduler = 0
-            for (s, q) in zip(batch_support, batch_query):
-                loss_scheduler += model.forward_meta(s, q, model.get_parameter())
+            for idx in selected_tasks_idx:
+                loss_scheduler += scheduler.m.log_prob(idx.cuda())
+            reward = meta_batch_loss
+            loss_scheduler *= (reward - moving_avg_reward)
+            moving_avg_reward = update_moving_avg(moving_avg_reward, reward, s)
 
             scheduler_optimizer.zero_grad()
-            loss_scheduler.backward()
+            loss_scheduler.backward(retain_graph=True)
             scheduler_optimizer.step()
+
+            """update network"""
+            optimizer.zero_grad()
+            batch_loss.backward()
+            optimizer.step()
 
             torch.cuda.empty_cache()
 
@@ -216,6 +221,10 @@ if __name__ == '__main__':
     # adaption ui_interaction
     cold_interact_mat = convert_to_sparse_tensor(cold_mean_mat_list)
     model.interact_mat = cold_interact_mat
+
+    # reset lr
+    for g in optimizer.param_groups:
+        g['lr'] = args.lr
 
     cur_best_pre_0 = 0
     stopping_step = 0
