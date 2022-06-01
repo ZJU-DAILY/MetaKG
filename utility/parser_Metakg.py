@@ -4,9 +4,11 @@ def parse_args():
     parser = argparse.ArgumentParser(description="MetaKG")
 
     # ===== dataset ===== #
-    # Amazon_meta-train batch_size=4 meta_batch_size=2 num_inner_update=1 node_dropout=0.4
-    # Yelp2018_meta-train batch_size=5 meta_batch_size=2 num_inner_update=1 node_dropout=0.4
-    # LastFM_meta-train batch_size=6 meta_batch_size=2 num_inner_update=2 node_dropout=0.5
+    """
+    Amazon_meta-train batch_size=4 meta_batch_size=2 num_inner_update=1 node_dropout=0.4
+    Yelp2018_meta-train batch_size=5 meta_batch_size=2 num_inner_update=1 node_dropout=0.4
+    LastFM_meta-train batch_size=6 meta_batch_size=2 num_inner_update=2 node_dropout=0.5
+    """
     parser.add_argument("--dataset", nargs="?", default="last-fm",
                         help="Choose a dataset:[last-fm,amazon-book,alibaba,yelp2018,movie-lens,Book-Crossing]")
     parser.add_argument("--cold_scenario", nargs="?", default="user_item_cold", help="[user_cold, item_cold, user_item_cold, warm_up]")
