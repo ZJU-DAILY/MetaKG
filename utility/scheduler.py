@@ -10,7 +10,6 @@ class Scheduler(nn.Module):
     def __init__(self, N, grad_indexes, use_deepsets=True):
         super(Scheduler, self).__init__()
         # self.percent_emb = nn.Embedding(100, 5)
-
         self.grad_lstm = nn.LSTM(N, 10, 1, bidirectional=True)
         self.loss_lstm = nn.LSTM(1, 10, 1, bidirectional=True)
         self.grad_lstm_2 = nn.LSTM(N, 10, 1, bidirectional=True)
@@ -26,8 +25,6 @@ class Scheduler(nn.Module):
         self.fc2 = nn.Linear(20, 1)
 
     def forward(self, loss, input, pt):
-        # x_percent = self.percent_emb(pt)
-
         grad_output_1, (hn, cn) = self.grad_lstm(input[0].reshape(1, len(input[0]), -1))
         grad_output_1 = grad_output_1.sum(0)
         grad_output_2, (hn, cn) = self.grad_lstm_2(input[1].reshape(1, len(input[1]), -1))
@@ -36,7 +33,7 @@ class Scheduler(nn.Module):
 
         loss_output, (hn, cn) = self.loss_lstm(loss.reshape(1, len(loss), 1))
         loss_output = loss_output.sum(0)
-        # x = torch.cat((x_percent, grad_output, loss_output), dim=1)
+        
         x = torch.cat((grad_output, loss_output), dim=1)
 
         if self.use_deepsets:
@@ -50,6 +47,7 @@ class Scheduler(nn.Module):
         return z
 
     def sample_task(self, prob, size, replace=True):
+        self.m = Categorical(prob)
         p = prob.detach().cpu().numpy()
         if len(np.where(p > 0)[0]) < size:
             actions = torch.tensor(np.where(p > 0)[0])
@@ -110,6 +108,6 @@ class Scheduler(nn.Module):
 
         weight = self.forward(task_losses, task_layer_inputs,
                               torch.tensor([pt]).long().repeat(len(task_losses)).cuda())
-        weight = weight.detach()
+        # weight = weight.detach()
 
         return task_losses, weight
