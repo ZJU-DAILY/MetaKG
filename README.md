@@ -60,5 +60,4 @@ The prepared folder structure is like this:
 
 ## Reference
 
-* We use the codes of [KGAT](https://github.com/xiangwang1223/knowledge_graph_attention_network).
 * You can find other baselines in Github.
