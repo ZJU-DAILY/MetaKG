@@ -268,7 +268,7 @@ if __name__ == '__main__':
                 [epoch, train_e_t - train_s_t, test_e_t - test_s_t, loss, ret['recall'], ret['ndcg'],])
             print(train_res)
 
-            f = open('./result/{}_{}_bt{}_lr{}.txt'.format(args.dataset, cold_scenario, args.fine_tune_batch_size, args.lr), 'a+')
+            f = open('./result/{}_{}_bt{}_lr{}_metaLr{}.txt'.format(args.dataset, cold_scenario, args.fine_tune_batch_size, args.lr, args.meta_update_lr), 'a+')
             f.write(str(train_res) + '\n')
             f.close()
 
