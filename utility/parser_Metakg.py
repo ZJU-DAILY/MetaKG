@@ -5,9 +5,9 @@ def parse_args():
 
     # ===== dataset ===== #
     """
-    Amazon_meta-train batch_size=4 meta_batch_size=2 num_inner_update=1 node_dropout=0.4
-    Yelp2018_meta-train batch_size=5 meta_batch_size=2 num_inner_update=1 node_dropout=0.4
-    LastFM_meta-train batch_size=6 meta_batch_size=2 num_inner_update=2 node_dropout=0.5
+    Amazon meta-train: batch_size=4 meta_batch_size=2 num_inner_update=1 node_dropout=0.4
+    Yelp2018 meta-train: batch_size=5 meta_batch_size=2 num_inner_update=1 node_dropout=0.4
+    LastFM meta-train: batch_size=6 meta_batch_size=2 num_inner_update=2 node_dropout=0.5
     """
     parser.add_argument("--dataset", nargs="?", default="last-fm",
                         help="Choose a dataset:[last-fm,amazon-book,alibaba,yelp2018,movie-lens,Book-Crossing]")
@@ -41,6 +41,11 @@ def parse_args():
                         help='Specify the test type from {part, full}, indicating whether the reference is done in mini-batch')
 
     parser.add_argument('--context_hops', type=int, default=3, help='number of context hops')
+    """
+    Last-FM fine tuning: '--use_gate'
+    user_item_cold, item_cold: True
+    user_cold, warm_up: False
+    """
     parser.add_argument('--use_gate', type=int, default=True, help='use gate or not')
     parser.add_argument('--use_pretrain', type=int, default=True, help='use pretrain data or not')
     parser.add_argument("--use_meta_model", type=bool, default=True, help="use trained meta model to adapt")
