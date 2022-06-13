@@ -2,7 +2,24 @@
 
 This is our Pytorch implementation for the paper:
 
-> Yuntao Du, Xinjun Zhu, Lu Chen, Ziquan Fang and Yunjun Gao (2022). MetaKG: Meta-learning on Knowledge Graph for Cold-start Recommendation
+> Yuntao Du, Xinjun Zhu, Lu Chen, Ziquan Fang and Yunjun Gao (2022). MetaKG: Meta-learning on Knowledge Graph for Cold-start Recommendation. Paper in [IEEE Explore](https://ieeexplore.ieee.org/document/9760046) or Paper in [arXiv](https://arxiv.org/abs/2204.04959). In IEEE Transactions on Knowledge and Data Engineering, TKDE’ 22.
+
+## Citation
+
+If you want to use our codes and datasets in your research, please cite:
+
+```
+@article{MetaKG22,
+  author    = {Yuntao Du and
+               Xinjun Zhu and
+               Lu Chen and
+               Ziquan Fang and 
+               Yunjun Gao},
+  title     = {{MetaKG:}  Meta-learning on Knowledge Graph for Cold-start Recommendation},
+  journal   = {{TKDE}},
+  year      = {2022}
+}
+```
 
 ## Environment Requirements
 
@@ -61,3 +78,26 @@ The prepared folder structure is like this:
 ## Reference
 
 * You can find other baselines in Github.
+
+## Acknowledgement
+Any scientific publications that use our datasets should cite the following paper as the reference:
+
+```
+@article{MetaKG22,
+  author    = {Yuntao Du and
+               Xinjun Zhu and
+               Lu Chen and
+               Ziquan Fang and 
+               Yunjun Gao},
+  title     = {{MetaKG:}  Meta-learning on Knowledge Graph for Cold-start Recommendation},
+  journal   = {{TKDE}},
+  year      = {2022}
+}
+```
+
+Nobody guarantees the correctness of the data, its suitability for any particular purpose, or the validity of results based on the use of the data set. The data set may be used for any research purposes under the following conditions:
+
+* The user must acknowledge the use of the data set in publications resulting from the use of the data set.
+* The user may not redistribute the data without separate permission.
+* The user may not try to deanonymise the data.
+* The user may not use this information for any commercial or revenue-bearing purposes without first obtaining permission from us.
